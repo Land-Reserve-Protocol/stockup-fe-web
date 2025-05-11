@@ -5,3 +5,12 @@ export interface ButtonProps {
   loading: boolean;
   isDisabled: boolean;
 }
+
+export interface dropdownProps {
+  style: string;
+  options: { value: string | any; label: string | any }[];
+  onSelect: (option: string) => void;
+  loading: boolean;
+  isDisabled: boolean;
+  selectedOption: string;
+}
