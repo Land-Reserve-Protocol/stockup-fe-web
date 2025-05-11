@@ -1,9 +1,13 @@
+import { Provider } from "react-redux";
 import "./App.css";
-import TextBox from "./components/TextBox/TextBox";
-import TextInput from "./components/TextInput/textInput";
+import { store } from "./Redux/store";
 
 function App() {
-  return <></>;
+  return (
+    <Provider store={store}>
+      <div></div>
+    </Provider>
+  );
 }
 
 export default App;
