@@ -27,3 +27,15 @@ export interface TextInputProps {
   errMessage: string;
   labelStyle: string;
 }
+
+export interface TextBoxProps {
+  placeholder: string;
+  onChange: (value: string) => void;
+  value: string;
+  style: string;
+  isDisabled: boolean;
+  error: boolean;
+  label: string;
+  errMessage: string;
+  labelStyle: string;
+}

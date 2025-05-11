@@ -1,7 +1,6 @@
-import type { TextInputProps } from "../../common/types/componentTypes";
+import type { TextBoxProps } from "../../common/types/componentTypes";
 
 function TextBox({
-  type,
   placeholder,
   onChange,
   value,
@@ -11,7 +10,7 @@ function TextBox({
   label,
   errMessage,
   labelStyle,
-}: TextInputProps) {
+}: TextBoxProps) {
   return (
     <div className="flex flex-col mb-4">
       <div
