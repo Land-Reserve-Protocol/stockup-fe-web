@@ -1,6 +1,6 @@
 import type { TextInputProps } from "../../common/types/componentTypes";
 
-function TextInput({
+function TextBox({
   type,
   placeholder,
   onChange,
@@ -19,9 +19,8 @@ function TextInput({
       >
         {label}
       </div>
-      <input
-        type={type}
-        className={`border border-gray-300 rounded-md p-2 bg-[white] text-[#1e1e1e] h-[56px] ${style}`}
+      <textarea
+        className={`border border-gray-300 rounded-md p-2 bg-[white] text-[#1e1e1e] h-[156px] ${style}`}
         placeholder={placeholder}
         value={value}
         onChange={(e) => onChange(e.target.value)}
@@ -34,4 +33,4 @@ function TextInput({
   );
 }
 
-export default TextInput;
+export default TextBox;
