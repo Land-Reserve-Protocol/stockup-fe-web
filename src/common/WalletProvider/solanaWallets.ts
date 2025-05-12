@@ -5,7 +5,7 @@ export const detectSolanaWallets = async () => {
 
   console.log("solana is connected", solana);
 
-  const isSolanaWalletAvailable = solana;
+  const isSolanaWalletAvailable = !!solana;
 
   const walletFlags = solanaWallets.reduce((acc, { name, flag }) => {
     acc[name] = solana?.[flag];

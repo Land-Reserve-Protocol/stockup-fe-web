@@ -39,11 +39,12 @@ export const solanaWallets = [
 export const cardanoWallets = [
   { name: "isYoroi", flag: "isYoroi" },
   { name: "isDaedalus", flag: "isDaedalus" },
-  { name: "isNami", flag: "isNami" },
+  { name: "isNamiWallet", flag: "isNamiWallet" },
   { name: "isTyphon", flag: "isTyphon" },
   { name: "isLace", flag: "isLace" },
   { name: "isGeroWallet", flag: "isGeroWallet" },
   { name: "isFlint", flag: "isFlint" },
   { name: "isEternl", flag: "isEternl" },
   { name: "isSeiza", flag: "isSeiza" },
+  { name: "isLace", flag: "lace" },
 ];
