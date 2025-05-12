@@ -1,3 +1,5 @@
+import { cardanoWallets } from "./providers";
+
 export const detectCardanoWallets = async () => {
   const cardano = (window as any)?.cardano;
 
@@ -15,13 +17,3 @@ export const detectCardanoWallets = async () => {
     ...walletFlags,
   };
 };
-const cardanoWallets = [
-  { name: "isNami", flag: "isNami" },
-  { name: "isFlint", flag: "isFlint" },
-  { name: "isGeroWallet", flag: "isGeroWallet" },
-  { name: "isTyphonWallet", flag: "isTyphonWallet" },
-  { name: "isEternl", flag: "isEternl" },
-  { name: "isCardWallet", flag: "isCardWallet" },
-  { name: "isLace", flag: "isLace" },
-  { name: "isNufi", flag: "isNufi" },
-];

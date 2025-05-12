@@ -1,5 +1,5 @@
 // Ethereum Wallets
-const ethereumWallets = [
+export const ethereumWallets = [
   { name: "isMetaMask", flag: "isMetaMask" },
   { name: "isCoinbaseWallet", flag: "isCoinbaseWallet" },
   { name: "isTrustWallet", flag: "isTrustWallet" },
@@ -13,7 +13,7 @@ const ethereumWallets = [
 ];
 
 // Solana Wallets
-const solanaWallets = [
+export const solanaWallets = [
   { name: "isPhantom", flag: "isPhantom" },
   { name: "isSolflare", flag: "isSolflare" },
   { name: "isBackpack", flag: "isBackpack" },
@@ -36,7 +36,7 @@ const solanaWallets = [
 ];
 
 // Cardano Wallets
-const cardanoWallets = [
+export const cardanoWallets = [
   { name: "isYoroi", flag: "isYoroi" },
   { name: "isDaedalus", flag: "isDaedalus" },
   { name: "isNami", flag: "isNami" },
