@@ -12,12 +12,15 @@ function WalletLists() {
 
   const [selectedNetwork, setSelectedNetwork] = useState<string>("cardano");
 
+  const [availableWallets, setAvailableWallets] = useState<any>(null);
+
   useEffect(() => {
     (async () => {
       const wallets = await walletsToSelect[selectedNetwork]();
-      console.log("available wallets", wallets);
+      setAvailableWallets(wallets);
     })();
   }, []);
+
   return <div></div>;
 }
 

@@ -3,8 +3,6 @@ import { solanaWallets } from "./providers";
 export const detectSolanaWallets = async () => {
   const solana = (window as any)?.solana;
 
-  console.log("solana is connected", solana);
-
   const isSolanaWalletAvailable = !!solana;
 
   const walletFlags = solanaWallets.reduce((acc, { name, flag }) => {
