@@ -1,6 +1,7 @@
-import { useState } from "react";
+import { useRef, useState } from "react";
 import type { dropdownProps } from "../../common/types/componentTypes";
 import Loader from "../loader";
+import useClickOutside from "../../hooks/useClickOutside/useClickoutside.hook";
 
 function Dropdown({
   style,
@@ -11,10 +12,18 @@ function Dropdown({
   selectedOption,
 }: dropdownProps) {
   const [showOptions, setShowOptions] = useState<boolean | boolean>(false);
+  const dropdownRef = useRef(null as any);
+
+  useClickOutside(dropdownRef, () => {
+    setShowOptions(false);
+  });
 
   return (
     <div>
-      <div className={`${style} relative inline-block text-left`}>
+      <div
+        className={`${style} relative inline-block text-left`}
+        ref={dropdownRef}
+      >
         <div>
           <button
             type="button"
@@ -25,7 +34,7 @@ function Dropdown({
             onClick={() => setShowOptions(!showOptions)}
             disabled={loading || isDisabled}
           >
-            {`${selectedOption || "Select"}`}
+            {`${selectedOption?.label || "Select"}`}
             <svg
               className="-mr-1 ml-2 h-5 w-5"
               xmlns="http://www.w3.org/2000/svg"
@@ -57,10 +66,12 @@ function Dropdown({
                     className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 w-full text-left rounded-[8px]"
                     role="menuitem"
                     onClick={() => {
-                      onSelect(opt.value);
+                      console.log("opt", selectedOption);
+                      onSelect(opt);
                     }}
                   >
-                    {opt.label}
+                    {opt?.icon}
+                    {opt?.label}
                   </button>
                 ))
               ) : (

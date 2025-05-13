@@ -8,11 +8,19 @@ export interface ButtonProps {
 
 export interface dropdownProps {
   style: string;
-  options: { value: string | any; label: string | any }[];
-  onSelect: (option: string) => void;
+  options: { value: string | any; label: string | any; [key: string]: any }[];
+  onSelect: (option: {
+    value: string | any;
+    label: string | any;
+    [key: string]: any;
+  }) => void;
   loading: boolean;
   isDisabled: boolean;
-  selectedOption: string;
+  selectedOption: {
+    value: string | any;
+    label: string | any;
+    [key: string]: any;
+  }[];
 }
 
 export interface TextInputProps {
