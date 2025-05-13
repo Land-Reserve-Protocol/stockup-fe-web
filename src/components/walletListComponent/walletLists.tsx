@@ -37,7 +37,12 @@ function WalletLists() {
 
   const [selectedNetwork, setSelectedNetwork] = useState<string>("cardano");
 
-  const [_availableWallets, setAvailableWallets] = useState<any>(null);
+  const [availableWallets, setAvailableWallets] = useState<{
+    [key: string]: any;
+    wallets: { [key: string]: any }[];
+  }>();
+
+  const [selectedWallet, _setSelectedWallet] = useState<string>("");
 
   useEffect(() => {
     console.log("selectedNetwork", selectedNetwork);
@@ -85,7 +90,33 @@ function WalletLists() {
             );
           })}
         </div>
-        <div></div>
+        <div className="grid grid-cols-3 gap-[20px] mt-[30px]">
+          {availableWallets?.isAvailable ? (
+            availableWallets?.wallets
+              ?.filter((wallet) => wallet.isAvailable)
+              ?.map((wallet) => {
+                return (
+                  <button
+                    key={wallet?.flag}
+                    onClick={() => _setSelectedWallet(wallet?.flag)}
+                    className=" relative bg-none w-full h-[100px] flex flex-col justify-center items-center content-center ring ring-[#80808060] focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-gray-100 focus:ring-indigo-500 rounded-[8px]"
+                  >
+                    <div>
+                      <img src={wallet?.icon} className="h-[24px] w-[24px]" />
+                    </div>
+                    <div className="mt-[10px]">{wallet.name}</div>
+                    {selectedWallet !== wallet?.flag ? (
+                      <div className="absolute bg-white/40 w-full h-full right-0 top-0"></div>
+                    ) : (
+                      <></>
+                    )}
+                  </button>
+                );
+              })
+          ) : (
+            <></>
+          )}
+        </div>
       </div>
     </div>
   );

@@ -2,15 +2,15 @@ import { ethereumWallets } from "./providers";
 export const detectAvaialableWallets = async () => {
   const eth = (window as any)?.ethereum;
 
-  const isEthereumWalletAvailable = !!eth;
+  const isAvailable = !!eth;
 
-  const walletFlags = ethereumWallets.reduce((acc, { flag }) => {
-    acc[flag] = eth?.[flag];
-    return acc;
-  }, {} as Record<string, boolean>);
+  const walletFlags = ethereumWallets.map((wallet) => {
+    wallet.isAvailable = eth?.[wallet?.flag];
+    return wallet;
+  });
 
   return {
-    isEthereumWalletAvailable,
-    ...walletFlags,
+    isAvailable,
+    wallets: walletFlags,
   };
 };

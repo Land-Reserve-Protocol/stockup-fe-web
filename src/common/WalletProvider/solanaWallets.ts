@@ -3,15 +3,15 @@ import { solanaWallets } from "./providers";
 export const detectSolanaWallets = async () => {
   const solana = (window as any)?.solana;
 
-  const isSolanaWalletAvailable = !!solana;
+  const isAvailable = !!solana;
 
-  const walletFlags = solanaWallets.reduce((acc, { flag }) => {
-    acc[flag] = solana?.[flag];
-    return acc;
-  }, {} as Record<string, boolean>);
+  const walletFlags = solanaWallets.reduce((wallet) => {
+    wallet.isAvailable = solana?.[wallet.flag];
+    return wallet;
+  });
 
   return {
-    isSolanaWalletAvailable,
-    ...walletFlags,
+    isAvailable,
+    wallets: walletFlags,
   };
 };
