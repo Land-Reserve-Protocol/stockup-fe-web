@@ -4,8 +4,8 @@ export const detectAvaialableWallets = async () => {
 
   const isEthereumWalletAvailable = !!eth;
 
-  const walletFlags = ethereumWallets.reduce((acc, { name, flag }) => {
-    acc[name] = eth?.[flag];
+  const walletFlags = ethereumWallets.reduce((acc, { flag }) => {
+    acc[flag] = eth?.[flag];
     return acc;
   }, {} as Record<string, boolean>);
 

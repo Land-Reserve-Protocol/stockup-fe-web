@@ -5,8 +5,8 @@ export const detectSolanaWallets = async () => {
 
   const isSolanaWalletAvailable = !!solana;
 
-  const walletFlags = solanaWallets.reduce((acc, { name, flag }) => {
-    acc[name] = solana?.[flag];
+  const walletFlags = solanaWallets.reduce((acc, { flag }) => {
+    acc[flag] = solana?.[flag];
     return acc;
   }, {} as Record<string, boolean>);
 

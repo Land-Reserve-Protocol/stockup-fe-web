@@ -5,8 +5,8 @@ export const detectCardanoWallets = async () => {
 
   const isCardanoWalletAvailable = !!cardano;
 
-  const walletFlags = cardanoWallets.reduce((acc, { name, flag }) => {
-    acc[name] = !!cardano?.[flag];
+  const walletFlags = cardanoWallets.reduce((acc, { flag }) => {
+    acc[flag] = !!cardano?.[flag];
     return acc;
   }, {} as Record<string, boolean>);
 
