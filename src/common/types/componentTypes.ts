@@ -20,7 +20,7 @@ export interface dropdownProps {
     value: string | any;
     label: string | any;
     [key: string]: any;
-  }[];
+  };
 }
 
 export interface TextInputProps {
