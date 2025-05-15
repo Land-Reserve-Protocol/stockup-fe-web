@@ -92,8 +92,18 @@ export const ethereumWallets = [
 
 // Solana Wallets
 export const solanaWallets = [
-  { name: "Phantom", flag: "isPhantom", isAvailable: false },
-  { name: "Solflare", flag: "isSolflare", isAvailable: false },
+  {
+    name: "Phantom",
+    flag: "isPhantom",
+    isAvailable: false,
+    icon: "https://cdn.brandfetch.io/idf5VaJxyT/theme/dark/symbol.svg?c=1dxbfHSJFAPEGdCLU4o5B",
+  },
+  {
+    name: "Solflare",
+    flag: "isSolflare",
+    isAvailable: false,
+    icon: "https://cdn.brandfetch.io/idtkbbbh-o/theme/dark/logo.svg?c=1dxbfHSJFAPEGdCLU4o5B",
+  },
   { name: "Backpack", flag: "isBackpack", isAvailable: false },
   { name: "Glow", flag: "isGlow", isAvailable: false },
   { name: "Slope", flag: "isSlope", isAvailable: false },
