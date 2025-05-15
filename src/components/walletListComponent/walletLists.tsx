@@ -3,7 +3,7 @@ import { useAvailableWallets } from "../../common/WalletProvider/EVMprovider";
 import { detectCardanoWallets } from "../../common/WalletProvider/cardanowalletsProviders";
 import { detectSolanaWallets } from "../../common/WalletProvider/solanaWallets";
 import { MdCancel } from "react-icons/md";
-import Cardano from "../../assets/Cardano.png";
+// import Cardano from "../../assets/Cardano.png";
 import Ethereum from "../../assets/ethereum.svg";
 import Solana from "../../assets/Solana.png";
 // import Web3 from "web3";
