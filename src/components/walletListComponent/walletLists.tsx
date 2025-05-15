@@ -1,5 +1,5 @@
-import { useEffect, useState } from "react";
-import { detectAvaialableWallets } from "../../common/WalletProvider/EVMprovider";
+import { use, useEffect, useState } from "react";
+import { useAvailableWallets } from "../../common/WalletProvider/EVMprovider";
 import { detectCardanoWallets } from "../../common/WalletProvider/cardanowalletsProviders";
 import { detectSolanaWallets } from "../../common/WalletProvider/solanaWallets";
 // // import Dropdown from "../Dropdown/dropdown";
@@ -9,11 +9,14 @@ import { MdCancel } from "react-icons/md";
 import Cardano from "../../assets/Cardano.png";
 import Ethereum from "../../assets/ethereum.svg";
 import Solana from "../../assets/Solana.png";
+import Web3 from "web3";
+import Button from "../Button/button";
+import { Connect } from "vite";
 
 function WalletLists() {
   const walletsToSelect: Record<string, () => any> = {
     cardano: detectCardanoWallets,
-    ethereum: detectAvaialableWallets,
+    ethereum: useAvailableWallets,
     solana: detectSolanaWallets,
   };
 
@@ -53,9 +56,13 @@ function WalletLists() {
     })();
   }, [selectedNetwork]);
 
+  const connectWallet = async () => {};
+
+  useEffect(() => {}, []);
+
   return (
-    <div className="w-[650px] h-[650px] bg-[black] px-[30px] py-[30px] backdrop-blur-md bg-white rounded-[8px] text-[#1e1e1e]">
-      <div className="flex justify-between items-center content-center">
+    <div className="w-[650px] min-h-[650px] bg-[black] px-[30px] py-[30px] backdrop-blur-md bg-white rounded-[8px] text-[#1e1e1e]">
+      {/* <div className="flex justify-between items-center content-center">
         <div>
           <div className="text-[24px] font-[500]">Connect your wallet</div>
           <p className="text-[14px]">
@@ -69,7 +76,7 @@ function WalletLists() {
       <div className="absolute bg-white/40 w-full h-full right-0 top-0"></div>
       <div className="mt-[50px]">
         <div className="text-[18px] font-medium">Choose Network</div>
-        <div className="grid grid-cols-3 gap-[20px] mt-[30px]">
+        <div className="grid grid-cols-3 gap-[20px] mt-[16px]">
           {networkOptions.map((option) => {
             return (
               <button
@@ -90,7 +97,10 @@ function WalletLists() {
             );
           })}
         </div>
-        <div className="grid grid-cols-3 gap-[20px] mt-[30px]">
+      </div>
+      <div className="mt-[50px]  w-full ">
+        <div className="text-[18px] font-medium">Choose Wallet</div>
+        <div className="grid grid-cols-3 gap-[20px] mt-[16px]">
           {availableWallets?.isAvailable ? (
             availableWallets?.wallets
               ?.filter((wallet) => wallet.isAvailable)
@@ -118,6 +128,17 @@ function WalletLists() {
           )}
         </div>
       </div>
+      <div>
+      
+      </div> */}
+
+      <Button
+        style={""}
+        onClick={() => connectWallet()}
+        text={"Connect"}
+        loading={false}
+        isDisabled={false}
+      />
     </div>
   );
 }

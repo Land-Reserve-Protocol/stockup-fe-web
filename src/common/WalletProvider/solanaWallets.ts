@@ -5,13 +5,13 @@ export const detectSolanaWallets = async () => {
 
   const isAvailable = !!solana;
 
-  const walletFlags = solanaWallets.reduce((wallet) => {
+  const avaiilableWallets = solanaWallets.map((wallet) => {
     wallet.isAvailable = solana?.[wallet.flag];
     return wallet;
   });
 
   return {
     isAvailable,
-    wallets: walletFlags,
+    wallets: [avaiilableWallets],
   };
 };

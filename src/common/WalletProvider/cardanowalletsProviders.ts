@@ -5,13 +5,13 @@ export const detectCardanoWallets = async () => {
 
   const isAvailable = !!cardano;
 
-  const walletFlags = cardanoWallets.map((wallet) => {
+  const avaiilableWallets = cardanoWallets.map((wallet) => {
     wallet.isAvailable = !!cardano?.[wallet.flag];
     return wallet;
   });
 
   return {
     isAvailable,
-    wallets: walletFlags,
+    wallets: avaiilableWallets,
   };
 };
