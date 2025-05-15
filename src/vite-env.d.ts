@@ -11,3 +11,10 @@ interface InjectedProviderDetail {
   };
   provider: EthereumProvider; // likely from `@web3-react/types` or similar
 }
+
+interface EIP1193Provider {
+  request(request: {
+    method: string;
+    params?: Array<any> | Record<string, any>;
+  }): Promise<any>;
+}

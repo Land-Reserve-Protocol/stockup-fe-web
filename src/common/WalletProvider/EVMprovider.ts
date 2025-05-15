@@ -45,7 +45,6 @@ export const useAvailableWallets = () => {
           };
 
           setAvailableWallets((prev) => [...prev, wallet]);
-          console.log("Wallet available:", wallet);
         }
       }
     };

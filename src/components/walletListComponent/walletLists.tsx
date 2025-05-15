@@ -8,19 +8,22 @@ import Ethereum from "../../assets/ethereum.svg";
 import Solana from "../../assets/Solana.png";
 // import Web3 from "web3";
 import Button from "../Button/button";
+import { useConnectWallets } from "../../hooks/connectWallets/connectWallet";
 
 function WalletLists() {
   const [selectedNetwork, setSelectedNetwork] = useState<string>("cardano");
-  const [selectedWallet, _setSelectedWallet] = useState<string>("");
+  const [selectedWallet, _setSelectedWallet] = useState<{
+    [key: string]: any;
+    provider: EIP1193Provider;
+  }>({} as any);
 
   const [availableWallets, setAvailableWallets] = useState<{
     [key: string]: any;
     wallets: { [key: string]: any }[];
   }>();
 
-  const connectWallet = async () => {};
-
   const { isAvailable, wallets } = useAvailableWallets();
+  const { connectEthereumWallets } = useConnectWallets();
 
   const walletsToSelect: Record<string, () => any> = {
     cardano: detectCardanoWallets,
@@ -48,11 +51,14 @@ function WalletLists() {
     },
   ];
 
+  const connectWallet = async () => {
+    console.log("selectedWallet", selectedWallet);
+    connectEthereumWallets(selectedWallet?.provider);
+  };
+
   useEffect(() => {
-    console.log("selectedNetwork", selectedNetwork);
     (async () => {
       const wallets = await walletsToSelect[selectedNetwork]();
-      console.log("selected network wallets", wallets);
       setAvailableWallets(wallets);
     })();
   }, [selectedNetwork]);
@@ -105,7 +111,7 @@ function WalletLists() {
                 return (
                   <button
                     key={wallet?.flag}
-                    onClick={() => _setSelectedWallet(wallet?.flag)}
+                    onClick={() => _setSelectedWallet(wallet as any)}
                     className=" relative bg-none w-full h-[100px] flex flex-col justify-center items-center content-center ring ring-[#80808060] focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-gray-100 focus:ring-indigo-500 rounded-[8px]"
                   >
                     <div>
