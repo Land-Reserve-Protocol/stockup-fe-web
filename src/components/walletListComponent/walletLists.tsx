@@ -23,7 +23,7 @@ function WalletLists() {
   }>();
 
   const { isAvailable, wallets } = useAvailableWallets();
-  const { connectEthereumWallets } = useConnectWallets();
+  const { connectEthereumWallets, connectSolanaWallets } = useConnectWallets();
 
   const walletsToSelect: Record<string, () => any> = {
     cardano: detectCardanoWallets,
@@ -52,8 +52,7 @@ function WalletLists() {
   ];
 
   const connectWallet = async () => {
-    // console.log("selectedWallet", selectedWallet);
-    connectEthereumWallets((selectedWallet as any)?.provider);
+    connectSolanaWallets(selectedWallet as any);
   };
 
   useEffect(() => {
@@ -62,6 +61,7 @@ function WalletLists() {
         ? await walletsToSelect[selectedNetwork]()
         : [];
 
+      console.log("wallets", wallets);
       setAvailableWallets(wallets);
     })();
   }, [selectedNetwork]);
@@ -113,37 +113,72 @@ function WalletLists() {
       </div>
       <div className="mt-[50px]  w-full ">
         <div className="text-[18px] font-medium">Choose Wallet</div>
-        <div className="grid grid-cols-3 gap-[20px] mt-[16px]">
-          {availableWallets?.isAvailable ? (
-            availableWallets?.wallets
-              ?.filter((wallet) => wallet.isAvailable)
-              ?.map((wallet) => {
-                return (
-                  <button
-                    key={wallet?.rdns}
-                    onClick={() => _setSelectedWallet(wallet as any)}
-                    className={`" relative bg-none w-full h-[100px] flex flex-col justify-center items-center content-center ring ring-[#80808060] focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-gray-100 focus:ring-indigo-500 rounded-[8px]" ${
-                      selectedWallet?.rdns === wallet?.rdns
-                        ? "ring-indigo-500 ring-2 ring-offset-gray-100 rounded-[8px]"
-                        : ""
-                    }`}
-                  >
-                    <div>
-                      <img src={wallet?.icon} className="h-[24px] w-[24px]" />
-                    </div>
-                    <div className="mt-[10px]">{wallet.name}</div>
-                    {selectedWallet?.rdns !== wallet?.rdns ? (
-                      <div className="absolute bg-white/40 w-full h-full right-0 top-0"></div>
-                    ) : (
-                      <></>
-                    )}
-                  </button>
-                );
-              })
-          ) : (
-            <></>
-          )}
-        </div>
+        {selectedNetwork === "ethereum" && (
+          <div className="grid grid-cols-3 gap-[20px] mt-[16px]">
+            {availableWallets?.isAvailable ? (
+              availableWallets?.wallets
+                ?.filter((wallet) => wallet.isAvailable)
+                ?.map((wallet) => {
+                  return (
+                    <button
+                      key={wallet?.rdns}
+                      onClick={() => _setSelectedWallet(wallet as any)}
+                      className={`" relative bg-none w-full h-[100px] flex flex-col justify-center items-center content-center ring ring-[#80808060] focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-gray-100 focus:ring-indigo-500 rounded-[8px]" ${
+                        selectedWallet?.rdns === wallet?.rdns
+                          ? "ring-indigo-500 ring-2 ring-offset-gray-100 rounded-[8px]"
+                          : ""
+                      }`}
+                    >
+                      <div>
+                        <img src={wallet?.icon} className="h-[24px] w-[24px]" />
+                      </div>
+                      <div className="mt-[10px]">{wallet.name}</div>
+                      {selectedWallet?.rdns !== wallet?.rdns ? (
+                        <div className="absolute bg-white/40 w-full h-full right-0 top-0"></div>
+                      ) : (
+                        <></>
+                      )}
+                    </button>
+                  );
+                })
+            ) : (
+              <></>
+            )}
+          </div>
+        )}
+        {selectedNetwork && selectedNetwork !== "ethereum" && (
+          <div className="grid grid-cols-3 gap-[20px] mt-[16px]">
+            {availableWallets?.isAvailable ? (
+              availableWallets?.wallets
+                ?.filter((wallet) => wallet.isAvailable)
+                ?.map((wallet) => {
+                  return (
+                    <button
+                      key={wallet?.name}
+                      onClick={() => _setSelectedWallet(wallet as any)}
+                      className={`" relative bg-none w-full h-[100px] flex flex-col justify-center items-center content-center ring ring-[#80808060] focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-gray-100 focus:ring-indigo-500 rounded-[8px]" ${
+                        selectedWallet?.name === wallet?.name
+                          ? "ring-indigo-500 ring-2 ring-offset-gray-100 rounded-[8px]"
+                          : ""
+                      }`}
+                    >
+                      <div>
+                        <img src={wallet?.icon} className="h-[24px] w-[24px]" />
+                      </div>
+                      <div className="mt-[10px]">{wallet.name}</div>
+                      {selectedWallet?.name !== wallet?.name ? (
+                        <div className="absolute bg-white/40 w-full h-full right-0 top-0"></div>
+                      ) : (
+                        <></>
+                      )}
+                    </button>
+                  );
+                })
+            ) : (
+              <></>
+            )}
+          </div>
+        )}
       </div>
       <div></div>
 
