@@ -3,15 +3,15 @@ import { cardanoWallets } from "./providers";
 export const detectCardanoWallets = async () => {
   const cardano = (window as any)?.cardano;
 
-  const isCardanoWalletAvailable = !!cardano;
+  const isAvailable = !!cardano;
 
-  const walletFlags = cardanoWallets.reduce((acc, { name, flag }) => {
-    acc[name] = !!cardano?.[flag];
-    return acc;
-  }, {} as Record<string, boolean>);
+  const avaiilableWallets = cardanoWallets.map((wallet) => {
+    wallet.isAvailable = !!cardano?.[wallet.flag];
+    return wallet;
+  });
 
   return {
-    isCardanoWalletAvailable,
-    ...walletFlags,
+    isAvailable,
+    wallets: avaiilableWallets,
   };
 };
