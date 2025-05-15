@@ -6,10 +6,20 @@ import { MdCancel } from "react-icons/md";
 import Cardano from "../../assets/Cardano.png";
 import Ethereum from "../../assets/ethereum.svg";
 import Solana from "../../assets/Solana.png";
-import Web3 from "web3";
+// import Web3 from "web3";
 import Button from "../Button/button";
 
 function WalletLists() {
+  const [selectedNetwork, setSelectedNetwork] = useState<string>("cardano");
+  const [selectedWallet, _setSelectedWallet] = useState<string>("");
+
+  const [availableWallets, setAvailableWallets] = useState<{
+    [key: string]: any;
+    wallets: { [key: string]: any }[];
+  }>();
+
+  const connectWallet = async () => {};
+
   const { isAvailable, wallets } = useAvailableWallets();
 
   const walletsToSelect: Record<string, () => any> = {
@@ -38,15 +48,6 @@ function WalletLists() {
     },
   ];
 
-  const [selectedNetwork, setSelectedNetwork] = useState<string>("cardano");
-
-  const [availableWallets, setAvailableWallets] = useState<{
-    [key: string]: any;
-    wallets: { [key: string]: any }[];
-  }>();
-
-  const [selectedWallet, _setSelectedWallet] = useState<string>("");
-
   useEffect(() => {
     console.log("selectedNetwork", selectedNetwork);
     (async () => {
@@ -55,10 +56,6 @@ function WalletLists() {
       setAvailableWallets(wallets);
     })();
   }, [selectedNetwork]);
-
-  const connectWallet = async () => {};
-
-  useEffect(() => {}, []);
 
   return (
     <div className="w-[650px] min-h-[650px] bg-[black] px-[30px] py-[30px] backdrop-blur-md bg-white rounded-[8px] text-[#1e1e1e]">
@@ -131,11 +128,13 @@ function WalletLists() {
       <div></div>
 
       <Button
-        style={""}
+        style={
+          "fixed bottom-0 right-[50%] translate-x-[50%] m-[20px] w-[256px] h-[56px] bg-indigo-500 hover:bg-indigo-600 text-white font-bold rounded-[8px] text-center flex justify-center items-center text-[#1e1e1e] cursor-pointer"
+        }
         onClick={() => connectWallet()}
         text={"Connect"}
         loading={false}
-        isDisabled={false}
+        isDisabled={selectedNetwork && selectedWallet ? false : true}
       />
     </div>
   );
