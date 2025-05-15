@@ -1,4 +1,5 @@
-import { useEffect, useState } from "react";
+import { useEffect, useState, useRef } from "react";
+import { ethereumWallets } from "./providers";
 
 type Wallet = {
   name: string;
@@ -9,21 +10,31 @@ type Wallet = {
   provider: any;
 };
 
-import { ethereumWallets } from "./providers"; // Presumed to be a static list
+type InjectedProviderDetail = {
+  info: {
+    name: string;
+    icon: string;
+    rdns: string;
+  };
+  provider: any;
+};
 
 export const useAvailableWallets = () => {
   const [availableWallets, setAvailableWallets] = useState<Wallet[]>([]);
+  const discovered = useRef<Record<string, boolean>>({});
 
   useEffect(() => {
-    const discovered: Record<string, Wallet> = {}; // Use object to avoid duplicates
-
     const handleAnnounce = (event: Event) => {
-      const { detail } = event as CustomEvent<InjectedProviderDetail>;
-      const { provider, info } = detail;
+      const { provider, info } = (event as CustomEvent<InjectedProviderDetail>)
+        ?.detail;
 
-      ethereumWallets.forEach((walletTemplate) => {
+      for (const walletTemplate of ethereumWallets) {
         const flagExists = provider?.[walletTemplate.flag];
-        if (flagExists && !discovered[info.rdns]) {
+        const alreadyDiscovered = discovered.current[info.rdns];
+
+        if (flagExists && !alreadyDiscovered) {
+          discovered.current[info.rdns] = true;
+
           const wallet: Wallet = {
             ...walletTemplate,
             name: info.name,
@@ -32,11 +43,11 @@ export const useAvailableWallets = () => {
             isAvailable: true,
             provider,
           };
-          discovered[info.rdns] = wallet;
+
           setAvailableWallets((prev) => [...prev, wallet]);
           console.log("Wallet available:", wallet);
         }
-      });
+      }
     };
 
     window.addEventListener("eip6963:announceProvider", handleAnnounce);

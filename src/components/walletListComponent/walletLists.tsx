@@ -1,22 +1,22 @@
-import { use, useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import { useAvailableWallets } from "../../common/WalletProvider/EVMprovider";
 import { detectCardanoWallets } from "../../common/WalletProvider/cardanowalletsProviders";
 import { detectSolanaWallets } from "../../common/WalletProvider/solanaWallets";
-// // import Dropdown from "../Dropdown/dropdown";
-// import { FaEthereum } from "react-icons/fa6";
-// import { SiSolana, SiCardano } from "react-icons/si";
 import { MdCancel } from "react-icons/md";
 import Cardano from "../../assets/Cardano.png";
 import Ethereum from "../../assets/ethereum.svg";
 import Solana from "../../assets/Solana.png";
 import Web3 from "web3";
 import Button from "../Button/button";
-import { Connect } from "vite";
 
 function WalletLists() {
+  const { isAvailable, wallets } = useAvailableWallets();
+
   const walletsToSelect: Record<string, () => any> = {
     cardano: detectCardanoWallets,
-    ethereum: useAvailableWallets,
+    ethereum: () => {
+      return { isAvailable, wallets };
+    },
     solana: detectSolanaWallets,
   };
 
@@ -62,7 +62,7 @@ function WalletLists() {
 
   return (
     <div className="w-[650px] min-h-[650px] bg-[black] px-[30px] py-[30px] backdrop-blur-md bg-white rounded-[8px] text-[#1e1e1e]">
-      {/* <div className="flex justify-between items-center content-center">
+      <div className="flex justify-between items-center content-center">
         <div>
           <div className="text-[24px] font-[500]">Connect your wallet</div>
           <p className="text-[14px]">
@@ -128,9 +128,7 @@ function WalletLists() {
           )}
         </div>
       </div>
-      <div>
-      
-      </div> */}
+      <div></div>
 
       <Button
         style={""}
