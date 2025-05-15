@@ -12,6 +12,6 @@ export const detectSolanaWallets = async () => {
 
   return {
     isAvailable,
-    wallets: [avaiilableWallets],
+    wallets: avaiilableWallets,
   };
 };

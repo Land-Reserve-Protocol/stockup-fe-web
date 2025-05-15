@@ -28,6 +28,8 @@ export const useAvailableWallets = () => {
       const { provider, info } = (event as CustomEvent<InjectedProviderDetail>)
         ?.detail;
 
+      console.log("event", event);
+
       for (const walletTemplate of ethereumWallets) {
         const flagExists = provider?.[walletTemplate.flag];
         const alreadyDiscovered = discovered.current[info.rdns];
@@ -56,6 +58,8 @@ export const useAvailableWallets = () => {
       window.removeEventListener("eip6963:announceProvider", handleAnnounce);
     };
   }, []);
+
+  console.log("available evm Wallets", availableWallets);
 
   return {
     wallets: availableWallets,

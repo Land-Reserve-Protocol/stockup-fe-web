@@ -11,11 +11,11 @@ import Button from "../Button/button";
 import { useConnectWallets } from "../../hooks/connectWallets/connectWallet";
 
 function WalletLists() {
-  const [selectedNetwork, setSelectedNetwork] = useState<string>("cardano");
+  const [selectedNetwork, setSelectedNetwork] = useState<string>("");
   const [selectedWallet, _setSelectedWallet] = useState<{
     [key: string]: any;
     provider: EIP1193Provider;
-  }>({} as any);
+  }>();
 
   const [availableWallets, setAvailableWallets] = useState<{
     [key: string]: any;
@@ -52,13 +52,16 @@ function WalletLists() {
   ];
 
   const connectWallet = async () => {
-    console.log("selectedWallet", selectedWallet);
-    connectEthereumWallets(selectedWallet?.provider);
+    // console.log("selectedWallet", selectedWallet);
+    connectEthereumWallets((selectedWallet as any)?.provider);
   };
 
   useEffect(() => {
     (async () => {
-      const wallets = await walletsToSelect[selectedNetwork]();
+      const wallets = selectedNetwork
+        ? await walletsToSelect[selectedNetwork]()
+        : [];
+
       setAvailableWallets(wallets);
     })();
   }, [selectedNetwork]);
@@ -84,8 +87,15 @@ function WalletLists() {
             return (
               <button
                 key={option?.value}
-                onClick={() => setSelectedNetwork(option?.value)}
-                className=" relative bg-none w-full h-[100px] flex flex-col justify-center items-center content-center ring ring-[#80808060] focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-gray-100 focus:ring-indigo-500 rounded-[8px]"
+                onClick={() => {
+                  setSelectedNetwork(option?.value);
+                  _setSelectedWallet(null as any);
+                }}
+                className={`${
+                  selectedNetwork === option?.value
+                    ? "ring-indigo-500 ring-2 ring-offset-gray-100 rounded-[8px]"
+                    : ""
+                } relative bg-none w-full h-[100px] flex flex-col justify-center items-center content-center ring ring-[#80808060] focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-gray-100 focus:ring-indigo-500 rounded-[8px]`}
               >
                 <div>
                   <img src={option?.icon} className="h-[24px] w-[24px]" />
@@ -110,15 +120,19 @@ function WalletLists() {
               ?.map((wallet) => {
                 return (
                   <button
-                    key={wallet?.flag}
+                    key={wallet?.rdns}
                     onClick={() => _setSelectedWallet(wallet as any)}
-                    className=" relative bg-none w-full h-[100px] flex flex-col justify-center items-center content-center ring ring-[#80808060] focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-gray-100 focus:ring-indigo-500 rounded-[8px]"
+                    className={`" relative bg-none w-full h-[100px] flex flex-col justify-center items-center content-center ring ring-[#80808060] focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-gray-100 focus:ring-indigo-500 rounded-[8px]" ${
+                      selectedWallet?.rdns === wallet?.rdns
+                        ? "ring-indigo-500 ring-2 ring-offset-gray-100 rounded-[8px]"
+                        : ""
+                    }`}
                   >
                     <div>
                       <img src={wallet?.icon} className="h-[24px] w-[24px]" />
                     </div>
                     <div className="mt-[10px]">{wallet.name}</div>
-                    {selectedWallet !== wallet?.flag ? (
+                    {selectedWallet?.rdns !== wallet?.rdns ? (
                       <div className="absolute bg-white/40 w-full h-full right-0 top-0"></div>
                     ) : (
                       <></>
@@ -140,7 +154,9 @@ function WalletLists() {
         onClick={() => connectWallet()}
         text={"Connect"}
         loading={false}
-        isDisabled={selectedNetwork && selectedWallet ? false : true}
+        isDisabled={(() => {
+          return selectedNetwork && selectedWallet ? false : true;
+        })()}
       />
     </div>
   );

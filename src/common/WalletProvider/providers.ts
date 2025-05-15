@@ -80,6 +80,14 @@ export const ethereumWallets = [
     icon: "",
     rdns: "",
   },
+  {
+    name: "Phantom",
+    flag: "isPhantom",
+    isAvailable: false,
+    provider: undefined,
+    icon: "",
+    rdns: "",
+  },
 ];
 
 // Solana Wallets

@@ -3,7 +3,7 @@ export interface ButtonProps {
   onClick: () => void;
   text: string;
   loading: boolean;
-  isDisabled: boolean;
+  isDisabled: boolean | any;
 }
 
 export interface dropdownProps {
