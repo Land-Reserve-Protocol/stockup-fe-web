@@ -3,7 +3,7 @@ import { useAvailableWallets } from "../../common/WalletProvider/EVMprovider";
 import { detectCardanoWallets } from "../../common/WalletProvider/cardanowalletsProviders";
 import { detectSolanaWallets } from "../../common/WalletProvider/solanaWallets";
 import { MdCancel } from "react-icons/md";
-import Cardano from "../../assets/Cardano.png";
+// import Cardano from "../../assets/Cardano.png";
 import Ethereum from "../../assets/ethereum.svg";
 import Solana from "../../assets/Solana.png";
 // import Web3 from "web3";
@@ -11,7 +11,9 @@ import Button from "../Button/button";
 import { useConnectWallets } from "../../hooks/connectWallets/connectWallet";
 
 function WalletLists() {
-  const [selectedNetwork, setSelectedNetwork] = useState<string>("");
+  const [selectedNetwork, setSelectedNetwork] = useState<"ethereum" | "solana">(
+    "" as any
+  );
   const [selectedWallet, _setSelectedWallet] = useState<{
     [key: string]: any;
     provider: EIP1193Provider;
@@ -33,7 +35,11 @@ function WalletLists() {
     solana: detectSolanaWallets,
   };
 
-  const networkOptions = [
+  const networkOptions: {
+    value: "ethereum" | "solana";
+    label: string;
+    icon: any;
+  }[] = [
     {
       value: "ethereum",
       label: "Ethereum",
@@ -44,15 +50,18 @@ function WalletLists() {
       label: "Solana",
       icon: Solana,
     },
-    {
-      value: "cardano",
-      label: "Cardano",
-      icon: Cardano,
-    },
+    // {
+    //   value: "cardano",
+    //   label: "Cardano",
+    //   icon: Cardano,
+    // },
   ];
 
   const connectWallet = async () => {
-    connectSolanaWallets(selectedWallet as any);
+    if (selectedNetwork === "solana")
+      connectSolanaWallets(selectedWallet as any);
+    else if (selectedNetwork === "ethereum")
+      connectEthereumWallets(selectedWallet?.provider as any);
   };
 
   useEffect(() => {
