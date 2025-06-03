@@ -8,8 +8,8 @@ Welcome to the **Stockup Web Frontend** — a high-performance, modular, and sca
 
 ```bash
 # Clone the repo
-git clone https://github.com/your-org/stockup-web.git
-cd stockup-web
+git clone https://github.com/Napolite/stockup-fe-web
+cd stockup-fe-web
 
 # Install dependencies
 npm install
