@@ -8,7 +8,7 @@ Welcome to the **Stockup Web Frontend** — a high-performance, modular, and sca
 
 ```bash
 # Clone the repo
-git clone https://github.com/Napolite/stockup-fe-web
+git clone --branch dev --single-branch https://github.com/Napolite/stockup-fe-web
 cd stockup-fe-web
 
 # Install dependencies
