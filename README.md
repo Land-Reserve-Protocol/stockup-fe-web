@@ -90,6 +90,54 @@ src/
 > Asana: https://app.asana.com/0/1234567890/1234567890
 > ```
 
+## 🚦 Pull Request & Merge Conventions
+
+All code contributions must follow these merging conventions to ensure code quality, maintainability, and collective accountability.
+
+### 🔁 PR Review Rules
+
+- **Thou shalt not merge thine own PR.**  
+  Another team member must review and approve your PR before it is merged. No self-approvals. No exceptions.
+
+- **Reviews must be thorough.**  
+  Reviewing is **not a checkbox**. It is your sacred duty to:
+
+  - Run the branch locally (if applicable).
+  - Read and understand the logic.
+  - Check for broken flows or possible regressions.
+  - Confirm tests (unit/e2e) pass.
+
+- **Whoever merges, bears the burden.**  
+  If a bug or breaking change enters `main` or `dev`, the person who clicked “Merge” will answer for it. Choose wisely.
+
+- **PRs must not:**
+
+  - Be merged with **pending comments** or suggestions.
+  - Contain unrelated or scope-creeping commits.
+  - Include `console.log()` statements or debug code.
+  - Leave failing tests or ignored test cases.
+
+- **PR Title** must match the exact title on the Asana ticket.
+- **PR Description** must include a list of all commits in the PR and any relevant test steps.
+
+---
+
+### ✅ Approving a PR?
+
+Check the following before approval:
+
+- [ ] Code is clean, well-formatted, and adheres to project structure.
+- [ ] All functionality is tested.
+- [ ] No hardcoded values, secrets, or commented-out code blocks.
+- [ ] Related ticket is marked complete only **after** merge to dev/main.
+
+---
+
+### 🔄 Merging Strategy
+
+- Use **Squash and Merge** to keep the `main` branch history clean.
+- Do **not** bypass checks (tests/lint/build) unless there's a written exception.
+
 ---
 
 ## ✍️ Code Style & Best Practices
