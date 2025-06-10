@@ -1,7 +1,14 @@
 import type { ButtonProps } from "../../common/types/componentTypes";
 import Loader from "../loader";
 
-function Button({ style, onClick, text, loading, isDisabled }: ButtonProps) {
+function Button({
+  style,
+  onClick,
+  text,
+  loading,
+  isDisabled,
+  children,
+}: ButtonProps) {
   return (
     <button
       className={`${style} disabled:bg-[#f1f1f1] disabled:cursor-not-allowed bg-[#1e1e1e] rounded-[8px] 
@@ -11,7 +18,7 @@ function Button({ style, onClick, text, loading, isDisabled }: ButtonProps) {
       disabled={loading || isDisabled}
       onClick={() => onClick()}
     >
-      {!loading ? text : <Loader size={24} color="#1E1E1E" />}
+      {!loading ? text || children : <Loader size={24} color="#1E1E1E" />}
     </button>
   );
 }
