@@ -1,12 +1,11 @@
 import Button from "../../components/Button/button";
-import image from "../../assets/landing page/Rotating_earth_animated_transparent.gif";
 import "../../App.css";
 
 function Landing() {
   return (
     <div className="w-full landing-bg  h-[calc(100vh-60px)] relative">
       {/* <div className="absolute top-0 left-0 w-full h-full   shadow-[inset_0_-0px_60px_rgba(195,164,55,0.2)] z-0"></div> */}
-      <div className="absolute top-0 left-0 w-full h-full bg-[linear-gradient(to_top,_#C3A43720_10%,_#202A3880_20%)] z-0"></div>
+      <div className="absolute top-0 left-0 w-full h-full bg-[linear-gradient(to_top,_#C3A43720_10%,_#202A3890_20%)] z-0"></div>
       <div className="flex flex-col justify-center h-full  w-[1440px] m-auto gap-[30px] z-[50] relative">
         <div className="text-[65.6px] text-[#C3A437] font-bold">
           Backed by the Earth
