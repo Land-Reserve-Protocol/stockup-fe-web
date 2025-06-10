@@ -2,7 +2,7 @@ import imgl from "../../assets/lrp.png";
 
 function HowItWorks() {
   return (
-    <div className="text-white min-h-[100vh] w-[100vw] pt-[150px] bg-[#111827]">
+    <div className="text-white min-h-[100vh] w-[100vw] pt-[150px] bg-[#00020b]">
       <div className="w-[1440px] h-full flex justify-between m-auto items-center content-center gap-x-[60px]">
         {/* Left Side: Text Content */}
         <div className="w-[60%] space-y-[30px]">
