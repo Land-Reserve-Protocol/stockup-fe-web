@@ -2,7 +2,7 @@ import imgl from "../../assets/lrp.png";
 
 function HowItWorks() {
   return (
-    <div className="text-white min-h-[100vh] w-[100vw] pt-[150px] bg-[#00020b]">
+    <div className="text-white min-h-[100vh] w-[100vw] pt-[150px] bg-[#00020b] pb-[100px]">
       <div className="w-[1440px] h-full flex justify-between m-auto items-center content-center gap-x-[60px]">
         {/* Left Side: Text Content */}
         <div className="w-[60%] space-y-[30px]">
@@ -65,7 +65,7 @@ function HowItWorks() {
 
         {/* Right Side: Image */}
         <div className="h-[800px] w-[40%] flex justify-center items-center">
-          <img src={imgl} className="h-[700px] w-full object-contain" />
+          <img src={imgl} className="h-[700px] w-full object-cover" />
         </div>
       </div>
     </div>
