@@ -12,3 +12,11 @@
   background-position: center;
   background-repeat: no-repeat;
 }
+
+.join-bg {
+  background-image: url("./assets/joinc.png");
+
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
