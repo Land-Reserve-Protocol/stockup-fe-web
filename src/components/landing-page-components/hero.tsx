@@ -14,7 +14,7 @@ function Hero() {
         </div>
         <div className="text-[20.6px] text-[#87949A] w-[650px] text-center">
           The Land Reserve Protocol transforms real-world land assets into
-          decentralzed financlal instruments, creating sustalnable value and
+          decentralzed financlal instruments, creating sustainable value and
           accessible opportunities.
         </div>
         <div className="flex gap-[50px]">
