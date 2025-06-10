@@ -1,14 +1,6 @@
 #root {
-  max-width: 100%;
+  max-width: 1440px;
   margin: 0 auto;
+  padding: 2rem;
   text-align: left;
-}
-
-.landing-bg {
-  /* background-image: url("https://upload.wikimedia.org/wikipedia/commons/7/7f/Rotating_earth_animated_transparent.gif"); */
-  background-image: url("./assets/earth.png");
-
-  background-size: cover;
-  background-position: center;
-  background-repeat: no-repeat;
 }
