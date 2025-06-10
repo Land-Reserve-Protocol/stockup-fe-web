@@ -1,10 +1,9 @@
 export interface ButtonProps {
   style: string;
   onClick: () => void;
-  text?: string;
+  text: string;
   loading: boolean;
   isDisabled: boolean | any;
-  children?: any;
 }
 
 export interface dropdownProps {
