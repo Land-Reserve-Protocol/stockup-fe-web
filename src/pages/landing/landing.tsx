@@ -4,6 +4,7 @@ import CoreFeatures from "../../components/landing-page-components/features";
 import HowItWorks from "../../components/landing-page-components/how-it-works";
 import Roadmap from "../../components/landing-page-components/roadmap";
 import Community from "../../components/landing-page-components/join-community";
+import Footer from "../../components/landing-page-components/footer";
 
 function Landing() {
   return (
@@ -13,6 +14,7 @@ function Landing() {
       <HowItWorks />
       <Roadmap />
       <Community />
+      <Footer />
     </div>
   );
 }
