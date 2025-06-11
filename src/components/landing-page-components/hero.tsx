@@ -2,7 +2,7 @@ import Button from "../../components/UI-components/Button/button";
 
 function Hero() {
   return (
-    <div className="w-full landing-bg  h-[100vh] relative">
+    <div className="w-full landing-bg  h-[100vh] relative inset-0">
       {/* <div className="absolute top-0 left-0 w-full h-full   shadow-[inset_0_-0px_60px_rgba(195,164,55,0.2)] z-0"></div> */}
       <div className="absolute top-0 left-0 w-full h-full bg-[linear-gradient(to_top,_#00000090_10%,_#00000090_20%)] z-0 "></div>
       <div className="flex flex-col justify-center items-center h-full  w-[1440px] m-auto gap-[30px] z-[50] relative h-full">
@@ -14,7 +14,7 @@ function Hero() {
         </div>
         <div className="text-[20.6px] text-[#87949A] w-[650px] text-center">
           The Land Reserve Protocol transforms real-world land assets into
-          decentralzed financlal instruments, creating sustalnable value and
+          decentralzed financlal instruments, creating sustainable value and
           accessible opportunities.
         </div>
         <div className="flex gap-[50px]">

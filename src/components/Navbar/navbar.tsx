@@ -1,7 +1,7 @@
 import Logo from "../../assets/navabr assets/logo.svg";
 function Navbar() {
   return (
-    <div className="bg-[#1F2937] w-full h-[70px] m-auto fixed z-99">
+    <div className="bg-[#1F2937] w-full h-[70px] m-auto fixed z-[999]">
       <div className="w-[1440px] m-auto h-full flex items-center content-center justify-between">
         <div className="flex items-center content-center">
           <img src={Logo} className="w-[20px] h-[20px]" />
