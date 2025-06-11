@@ -3,7 +3,7 @@ import { FaDiscord, FaTwitter, FaTelegram } from "react-icons/fa";
 
 function Footer() {
   return (
-    <div className="bg-gray-800 text-white h-[411.11px] flex-col ">
+    <div className="bg-[#00020b] text-white h-[411.11px] flex-col ">
       <div className="h-[311.11px] w-[1440px] mx-auto flex items-center grid grid-cols-4 gap-8">
         <div className="  h-[179.92px] ">
           <div className="flex items-center content-center mb-6">
@@ -16,7 +16,7 @@ function Footer() {
             Bridging real-world assets with decentralized finance through
             innovative land tokenization.
           </div>
-          <div className="w-full space-x-4 flex text-gray-400">
+          <div className="w-full space-x-4 flex text-gray-400 text-[16px]">
             <FaDiscord />
             <FaTwitter />
             <FaTelegram />

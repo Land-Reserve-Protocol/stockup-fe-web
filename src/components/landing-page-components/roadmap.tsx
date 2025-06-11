@@ -1,6 +1,6 @@
 function Roadmap() {
   return (
-    <div className="bg-[#111827] text-white py-[100px] px-4">
+    <div className="bg-[#00020b] text-white py-[100px] px-4">
       <div className="max-w-[1440px] mx-auto ">
         {/* Header Section */}
         <div className="mb-[60px] text-center w-[80%] mx-auto ">

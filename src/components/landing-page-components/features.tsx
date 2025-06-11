@@ -4,7 +4,7 @@ import { MdPeopleAlt } from "react-icons/md";
 
 function CoreFeatures() {
   return (
-    <div className="h-[100vh] bg-[#00000090] flex flex-col justify-between relative">
+    <div className="h-[70vh] bg-[#00000090] flex flex-col justify-between relative">
       <div className="absolute top-0 left-0 w-full h-full bg-[linear-gradient(to_top,_#00000090_10%,_#00000090_20%)] z-0 "></div>
 
       <div className="flex flex-col items-center justify-center gap-[20px] h-[60%] z-99">
