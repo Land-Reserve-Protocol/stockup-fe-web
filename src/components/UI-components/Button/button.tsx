@@ -19,6 +19,7 @@ function Button({
     disabled:bg-[#f1f1f1] 
     disabled:text-[#9ca3af]
     disabled:cursor-not-allowed
+    px-[10px]
   `;
 
   return (

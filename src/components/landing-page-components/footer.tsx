@@ -17,7 +17,12 @@ function Footer() {
           </p>
           <div className="flex gap-4 text-gray-400 text-lg">
             <FaDiscord className="hover:text-white cursor-pointer" />
-            <FaTwitter className="hover:text-white cursor-pointer" />
+            <FaTwitter
+              className="hover:text-white cursor-pointer"
+              onClick={() => {
+                window.open("https://x.com/TheLRprotocol", "_blank");
+              }}
+            />
             <FaTelegram className="hover:text-white cursor-pointer" />
           </div>
         </div>
@@ -41,7 +46,18 @@ function Footer() {
             <h3 className="text-md font-semibold mb-4">{section.title}</h3>
             <ul className="space-y-2 text-sm text-gray-400">
               {section.items.map((item, i) => (
-                <li key={i} className="hover:text-white cursor-pointer">
+                <li
+                  key={i}
+                  className="hover:text-white cursor-pointer"
+                  onClick={() => {
+                    if (item === "White Paper") {
+                      window.open(
+                        "https://cdn.jsdelivr.net/gh/Land-Reserve-Protocol/landing-page-assets@main/The%20Land%20Reserve%20Protocol%20(Stock%20Up)%20(1).pdf",
+                        "_blank"
+                      );
+                    }
+                  }}
+                >
                   {item}
                 </li>
               ))}
