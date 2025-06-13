@@ -39,7 +39,7 @@ function CoreFeatures() {
         ].map((feature, i) => (
           <div
             key={i}
-            className="bg-[#1E2F34] rounded-[8px] ring ring-2 ring-[#25433D] ring-offset-2 ring-offset-[#1E2F34] p-6 pt-[50px] flex flex-col gap-[30px] h-[350px]"
+            className="bg-[#1E2F34] rounded-[8px] ring ring-2 ring-[#25433D] ring-offset-2 ring-offset-[#1E2F34] p-6 pt-[50px] flex flex-col gap-[30px] lg:h-[350px]"
           >
             <div className="bg-[#5C532D] h-[54px] w-[54px] flex justify-center items-center rounded-lg">
               {feature.icon}
