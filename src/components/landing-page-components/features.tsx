@@ -4,7 +4,7 @@ import { MdPeopleAlt } from "react-icons/md";
 
 function CoreFeatures() {
   return (
-    <div className="min-h-screen bg-[#00000090] flex flex-col justify-between relative px-4 sm:px-8 py-10">
+    <div className="min-h-[50vh] bg-[#00000090] flex flex-col space-y-8 relative px-4 sm:px-8 py-20">
       {/* Overlay */}
       <div className="absolute top-0 left-0 w-full h-full bg-[linear-gradient(to_top,_#00000090_10%,_#00000090_20%)] z-0"></div>
 
@@ -39,7 +39,7 @@ function CoreFeatures() {
         ].map((feature, i) => (
           <div
             key={i}
-            className="bg-[#1E2F34] rounded-[8px] ring ring-2 ring-[#25433D] ring-offset-2 ring-offset-[#1E2F34] p-6 flex flex-col gap-5"
+            className="bg-[#1E2F34] rounded-[8px] ring ring-2 ring-[#25433D] ring-offset-2 ring-offset-[#1E2F34] p-6 pt-[50px] flex flex-col gap-[30px] h-[350px]"
           >
             <div className="bg-[#5C532D] h-[54px] w-[54px] flex justify-center items-center rounded-lg">
               {feature.icon}
