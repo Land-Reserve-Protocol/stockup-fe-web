@@ -2,23 +2,32 @@ import type { ButtonProps } from "../../common/types/componentTypes";
 import Loader from "../loader";
 
 function Button({
-  style,
+  style = "",
   onClick,
   text,
-  loading,
-  isDisabled,
+  loading = false,
+  isDisabled = false,
   children,
 }: ButtonProps) {
+  const baseStyles = `
+    rounded-[8px]
+    text-center 
+    flex justify-center items-center 
+    font-bold text-[16px] leading-[24px] 
+    transition-all duration-200 ease-in-out
+    cursor-pointer
+    disabled:bg-[#f1f1f1] 
+    disabled:text-[#9ca3af]
+    disabled:cursor-not-allowed
+  `;
+
   return (
     <button
-      className={` disabled:bg-[#f1f1f1] disabled:cursor-not-allowed bg-[#1e1e1e] rounded-[8px] 
-      text-center flex justify-center items-center text-[#1e1e1e] 
-      font-[700] text-[16px] leading-[24px] cursor-pointer  
-      transition-all duration-200 ease-in-out ${style}`}
+      className={`${baseStyles} ${style}`}
       disabled={loading || isDisabled}
-      onClick={() => onClick()}
+      onClick={onClick}
     >
-      {!loading ? text || children : <Loader size={24} color="#1E1E1E" />}
+      {loading ? <Loader size={24} color="#1E1E1E" /> : text || children}
     </button>
   );
 }

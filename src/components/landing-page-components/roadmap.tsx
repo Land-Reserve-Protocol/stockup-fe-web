@@ -1,67 +1,68 @@
 function Roadmap() {
   return (
     <div className="bg-[#00020b] text-white py-[100px] px-4">
-      <div className="max-w-[1440px] mx-auto ">
+      <div className="max-w-7xl mx-auto">
         {/* Header Section */}
-        <div className="mb-[60px] text-center w-[80%] mx-auto ">
-          <h2 className="text-[36px] font-semibold mb-[10px]">
+        <div className="mb-14 text-center max-w-3xl mx-auto px-2">
+          <h2 className="text-2xl sm:text-3xl md:text-4xl font-semibold mb-3">
             Protocol Roadmap
           </h2>
-          <p className="text-[18px] text-[#7A8187]">
+          <p className="text-base sm:text-lg text-[#7A8187]">
             Our strategic plan for the development and expansion of the Land
             Reserve ecosystem.
           </p>
         </div>
 
-        {/* Phases */}
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-[50px] w-[80%] mx-auto  pl-[150px]">
-          {/* Phase 1 */}
-          <div>
-            <h3 className="text-[24px] font-semibold text-[#D4AF37] mb-[20px]">
-              Phase 1: Foundation
-            </h3>
-            <ul className="list-disc list-inside text-[#C8CBCC] space-y-2 text-[17px]">
-              <li>Protocol architecture development</li>
-              <li>Smart contract auditing</li>
-              <li>Initial land acquisition framework</li>
-            </ul>
-          </div>
-
-          {/* Phase 2 */}
-          <div>
-            <h3 className="text-[24px] font-semibold text-[#D4AF37] mb-[20px]">
-              Phase 2: Launch
-            </h3>
-            <ul className="list-disc list-inside text-[#C8CBCC] space-y-2 text-[17px]">
-              <li>Token Generation Event (TGE)</li>
-              <li>Initial Coin Offering (ICO)</li>
-              <li>DEX listing and liquidity pool deployment</li>
-            </ul>
-          </div>
-
-          {/* Phase 3 */}
-          <div>
-            <h3 className="text-[24px] font-semibold text-[#D4AF37] mb-[20px]">
-              Phase 3: Expansion
-            </h3>
-            <ul className="list-disc list-inside text-[#C8CBCC] space-y-2 text-[17px]">
-              <li>Cross-chain integration</li>
-              <li>Lending protocol launch</li>
-              <li>DAO governance activation</li>
-            </ul>
-          </div>
-
-          {/* Phase 4 */}
-          <div>
-            <h3 className="text-[24px] font-semibold text-[#D4AF37] mb-[20px]">
-              Phase 4: Ecosystem
-            </h3>
-            <ul className="list-disc list-inside text-[#C8CBCC] space-y-2 text-[17px]">
-              <li>Integration with real-world asset partners</li>
-              <li>Launch of the Land Reserve Index Fund</li>
-              <li>Institutional adoption and compliance framework</li>
-            </ul>
-          </div>
+        {/* Phases Grid */}
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-10 md:gap-16 px-2">
+          {[
+            {
+              phase: "Phase 1: Foundation",
+              points: [
+                "Protocol architecture development",
+                "Smart contract auditing",
+                "Initial land acquisition framework",
+              ],
+            },
+            {
+              phase: "Phase 2: Launch",
+              points: [
+                "Token Generation Event (TGE)",
+                "Initial Coin Offering (ICO)",
+                "DEX listing and liquidity pool deployment",
+              ],
+            },
+            {
+              phase: "Phase 3: Expansion",
+              points: [
+                "Cross-chain integration",
+                "Lending protocol launch",
+                "DAO governance activation",
+              ],
+            },
+            {
+              phase: "Phase 4: Ecosystem",
+              points: [
+                "Integration with real-world asset partners",
+                "Launch of the Land Reserve Index Fund",
+                "Institutional adoption and compliance framework",
+              ],
+            },
+          ].map((item, idx) => (
+            <div
+              key={idx}
+              className="bg-[#0a0f14] p-6 rounded-lg shadow-md ring-1 ring-[#1a1a1a]"
+            >
+              <h3 className="text-xl md:text-2xl font-semibold text-[#D4AF37] mb-4">
+                {item.phase}
+              </h3>
+              <ul className="list-disc list-inside text-[#C8CBCC] space-y-2 text-[17px]">
+                {item.points.map((point, i) => (
+                  <li key={i}>{point}</li>
+                ))}
+              </ul>
+            </div>
+          ))}
         </div>
       </div>
     </div>
