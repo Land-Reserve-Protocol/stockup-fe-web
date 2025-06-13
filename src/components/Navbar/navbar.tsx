@@ -1,23 +1,72 @@
+import { useState } from "react";
+import { HiMenu, HiX } from "react-icons/hi";
 import Logo from "../../assets/navabr assets/logo.svg";
+
 function Navbar() {
+  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+
+  const toggleMenu = () => setIsMobileMenuOpen(!isMobileMenuOpen);
+
+  const navItems = ["Features", "Tokenization", "How it works", "Roadmap"];
+
   return (
-    <div className="bg-[#1F2937] w-full h-[70px] m-auto fixed z-[999]">
-      <div className="w-[1440px] m-auto h-full flex items-center content-center justify-between">
-        <div className="flex items-center content-center">
-          <img src={Logo} className="w-[20px] h-[20px]" />
-          <p className="ml-[10px]">Land Reserve Protocol</p>
+    <header className="bg-[#1F2937] fixed top-0 w-full z-[999] shadow-sm">
+      <div className="max-w-7xl mx-auto px-6 h-[70px] flex items-center justify-between">
+        {/* Logo */}
+        <div className="flex items-center">
+          <img src={Logo} className="w-5 h-5" alt="Land Reserve Logo" />
+          <p className="ml-3 text-white font-semibold text-sm sm:text-base">
+            Land Reserve Protocol
+          </p>
         </div>
-        <nav className="flex w-[500px] justify-between items-center h-full text-[#9B9FA5]">
-          <div>Features</div>
-          <div>Tokenization</div>
-          <div>How it works</div>
-          <div>Roadmap</div>
+
+        {/* Desktop Nav */}
+        <nav className="hidden md:flex gap-10 text-[#9B9FA5] text-sm">
+          {navItems.map((item, i) => (
+            <a
+              href="#"
+              key={i}
+              className="hover:text-white transition duration-200"
+            >
+              {item}
+            </a>
+          ))}
         </nav>
-        <div className="h-[37px] w-[150px] bg-[#D2AF38] rounded-[9px] flex items-center justify-center !text-[#192D1A]">
+
+        {/* Launch App Button */}
+        <div className="hidden md:flex bg-[#D2AF38] text-[#192D1A] rounded-[9px] px-5 py-2 text-sm font-medium cursor-pointer hover:opacity-90">
           Launch App
         </div>
+
+        {/* Mobile Menu Toggle */}
+        <div className="md:hidden text-white text-2xl cursor-pointer">
+          {isMobileMenuOpen ? (
+            <HiX onClick={toggleMenu} />
+          ) : (
+            <HiMenu onClick={toggleMenu} />
+          )}
+        </div>
       </div>
-    </div>
+
+      {/* Mobile Menu */}
+      {isMobileMenuOpen && (
+        <div className="md:hidden bg-[#1F2937] px-6 py-4 space-y-4">
+          {navItems.map((item, i) => (
+            <a
+              href="#"
+              key={i}
+              className="block text-[#9B9FA5] hover:text-white transition duration-200"
+              onClick={() => setIsMobileMenuOpen(false)}
+            >
+              {item}
+            </a>
+          ))}
+          <div className="bg-[#D2AF38] text-[#192D1A] rounded-[9px] px-5 py-2 text-sm font-medium text-center">
+            Launch App
+          </div>
+        </div>
+      )}
+    </header>
   );
 }
 

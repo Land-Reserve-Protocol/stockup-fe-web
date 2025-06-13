@@ -2,25 +2,29 @@ import Button from "../../components/UI-components/Button/button";
 
 function Hero() {
   return (
-    <div className="w-full landing-bg  h-[100vh] relative inset-0">
-      {/* <div className="absolute top-0 left-0 w-full h-full   shadow-[inset_0_-0px_60px_rgba(195,164,55,0.2)] z-0"></div> */}
-      <div className="absolute top-0 left-0 w-full h-full bg-[linear-gradient(to_top,_#00000090_10%,_#00000090_20%)] z-0 "></div>
-      <div className="flex flex-col justify-center items-center h-full  w-[1440px] m-auto gap-[30px] z-[50] relative h-full">
-        <div className="text-[65.6px] text-[#C3A437] font-bold text-center">
+    <div className="w-full landing-bg h-screen relative">
+      {/* Dark overlay */}
+      <div className="absolute top-0 left-0 w-full h-full bg-[linear-gradient(to_top,_#00000090_10%,_#00000090_20%)] z-0"></div>
+
+      {/* Content */}
+      <div className="flex flex-col justify-center items-center h-full px-4 sm:px-6 md:px-10 lg:px-16 max-w-[90rem] mx-auto gap-6 z-[50] relative text-center">
+        <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-[65.6px] text-[#C3A437] font-bold leading-tight">
           Backed by the Earth.
-        </div>
-        <div className="text-[65.6px] text-[#E9EDEC] font-bold text-center">
+        </h1>
+        <h2 className="text-4xl sm:text-5xl md:text-6xl lg:text-[65.6px] text-[#E9EDEC] font-bold leading-tight">
           Built for the future.
-        </div>
-        <div className="text-[20.6px] text-[#87949A] w-[650px] text-center">
+        </h2>
+        <p className="text-base sm:text-lg md:text-xl lg:text-[20.6px] text-[#87949A] max-w-[90%] sm:max-w-[600px] md:max-w-[650px] mx-auto">
           The Land Reserve Protocol transforms real-world land assets into
-          decentralzed financlal instruments, creating sustainable value and
+          decentralized financial instruments, creating sustainable value and
           accessible opportunities.
-        </div>
-        <div className="flex gap-[50px]">
+        </p>
+
+        {/* Buttons */}
+        <div className="flex flex-col sm:flex-row gap-4 sm:gap-[50px] mt-4">
           <Button
             style={
-              "h-[67px] w-[250px] bg-[#D2AF38] rounded-[10px] flex items-center justify-center !text-[#5C532D] hover:bg-none text-[16px] hover:transform  hover:text-[18px]"
+              "h-[56px] sm:h-[67px] w-full sm:w-[250px] bg-[#D2AF38] rounded-[10px] flex items-center justify-center !text-[#5C532D] hover:text-[18px] transition-all duration-200"
             }
             onClick={() => {}}
             loading={false}
@@ -30,7 +34,7 @@ function Hero() {
           </Button>
           <Button
             style={
-              "h-[67px] w-[250px] bg-[white] ring ring-1 ring-[#D2AF38] rounded-[10px] flex items-center justify-center !text-[#D2AF38] text-[16px] hover:transform  hover:text-[18px]"
+              "h-[56px] sm:h-[67px] w-full sm:w-[250px] bg-white ring ring-1 ring-[#D2AF38] rounded-[10px] flex items-center justify-center !text-[#D2AF38] text-[16px] hover:text-[18px] transition-all duration-200"
             }
             onClick={() => {}}
             loading={false}
