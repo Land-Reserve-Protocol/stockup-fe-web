@@ -1,4 +1,4 @@
-import type { ButtonProps } from "../../common/types/componentTypes";
+import type { ButtonProps } from "../../../common/types/componentTypes";
 import Loader from "../loader";
 
 function Button({
