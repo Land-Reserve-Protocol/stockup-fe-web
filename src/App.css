@@ -1,16 +1,27 @@
 #root {
-  max-width: 100%;
-  margin: 0 auto;
-  text-align: left;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
-
-.landing-bg {
-  /* background-image: url("https://upload.wikimedia.org/wikipedia/commons/7/7f/Rotating_earth_animated_transparent.gif"); */
-  background-image: url("./assets/earth.png");
-
-  background-size: cover;
-  background-position: center;
-  background-repeat: no-repeat;
+.wrapper {
+  height: 100vh;
+  overflow-y: auto;
+  overflow-x: hidden;
+  perspective: 10px;
+}
+.parallax-container {
+  position: relative;
+  z-index: -1;
+  transform-style: preserve-3d;
+  height: 100%;
+}
+.parallax-image {
+  position: absolute;
+  height: 100%;
+  width: 100%;
+  object-fit: cover;
+  z-index: -1;
+  transform: translateZ(-10px) scale(2);
 }
 
 .join-bg {

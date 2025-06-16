@@ -1,11 +1,10 @@
 import Button from "../../components/UI-components/Button/button";
+import image from "../../assets/earth.png";
 
 function Hero() {
   return (
-    <div className="w-full landing-bg h-screen relative">
-      {/* Dark overlay */}
-      <div className="absolute top-0 left-0 w-full h-full bg-[linear-gradient(to_top,_#00000090_10%,_#00000090_20%)] z-0"></div>
-
+    <div className="flex items-center justify-center w-full parallax-container h-screen lg:min-h-screen bg-[linear-gradient(to_top,_#00000090_10%,_#00000090_20%)]">
+      <img src={image} className="parallax-image" />
       {/* Content */}
       <div className="flex flex-col justify-center items-center h-full px-4 sm:px-6 md:px-10 lg:px-16 max-w-[90rem] mx-auto gap-6 z-[50] relative text-center">
         <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-[65.6px] text-[#C3A437] font-bold leading-tight">
