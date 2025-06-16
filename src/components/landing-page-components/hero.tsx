@@ -24,7 +24,7 @@ function Hero() {
         <div className="flex flex-col sm:flex-row gap-4 sm:gap-[50px] mt-4">
           <Button
             style={
-              "h-[56px] sm:h-[67px] w-full sm:w-[250px] bg-[#D2AF38] rounded-[10px] flex items-center justify-center !text-[#5C532D] hover:text-[18px] transition-all duration-200"
+              "sm:h-[67px] w-full sm:w-[250px] bg-[#D2AF38] rounded-[10px] flex items-center justify-center !text-[#5C532D] hover:scale-120 transition-all duration-200 ease-in-out"
             }
             onClick={() => {}}
             loading={false}
