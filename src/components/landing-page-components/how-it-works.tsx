@@ -42,7 +42,7 @@ function HowItWorks() {
           through our innovative protocol.
         </p>
       </div>
-      <div className="flex items-center justify-center m-20 bg-[#1F2937] p-4 rounded-xl shadow-xl shadow-black/70 space-x-4">
+      <div className="hidden lg:flex lg:items-center lg:justify-center lg:m-20 bg-[#1F2937] lg:p-4 lg:rounded-xl lg:shadow-xl lg:shadow-black/70 lg:space-x-4">
         {steps.map((step) => (
           <Button
             key={step.title}
