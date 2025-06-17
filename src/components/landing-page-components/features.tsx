@@ -4,7 +4,7 @@ import { MdPeopleAlt } from "react-icons/md";
 
 function CoreFeatures() {
   return (
-    <div className="min-h-[50vh] bg-[#00000090] flex flex-col space-y-8 relative px-4 sm:px-8 py-20">
+    <div className="min-h-[50vh] bg-transparent flex flex-col space-y-8 relative px-4 sm:px-8 py-20">
       {/* Overlay */}
       <div className="absolute top-0 left-0 w-full h-full bg-[linear-gradient(to_top,_#00000090_10%,_#00000090_20%)] z-0"></div>
 
