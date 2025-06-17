@@ -3,7 +3,7 @@ import image from "../../assets/earth.png";
 
 function Hero() {
   return (
-    <div className="flex items-center justify-center w-full parallax-container h-screen lg:min-h-screen bg-[linear-gradient(to_top,_#00000090_10%,_#00000090_20%)]">
+    <div className="flex items-center justify-center w-full parallax-container min-h-screen bg-[linear-gradient(to_top,_#00000090_10%,_#00000090_20%)]">
       <img src={image} className="parallax-image" />
       {/* Content */}
       <div className="flex flex-col justify-center items-center h-full px-4 sm:px-6 md:px-10 lg:px-16 max-w-[90rem] mx-auto gap-6 z-[50] relative text-center">
@@ -23,7 +23,7 @@ function Hero() {
         <div className="flex flex-col sm:flex-row gap-4 sm:gap-[50px] mt-4">
           <Button
             style={
-              "sm:h-[67px] w-full sm:w-[250px] bg-[#D2AF38] rounded-[10px] flex items-center justify-center !text-[#5C532D] hover:scale-none lg:hover:scale-120 lg:hover:opacity-80 hover:opacity-100 transition-all duration-200 ease-in-out"
+              "h-14 p-6 sm:h-[67px] w-full sm:w-[250px] bg-[#D2AF38] leading-20 rounded-[20px] flex items-center justify-center !text-[#5C532D] hover:scale-none lg:hover:scale-120 lg:hover:opacity-80 hover:opacity-100 transition-all duration-200 ease-in-out"
             }
             onClick={() => {}}
             loading={false}
@@ -33,7 +33,7 @@ function Hero() {
           </Button>
           <Button
             style={
-              "h-[56px] sm:h-[67px] w-full sm:w-[250px] bg-white ring ring-1 ring-[#D2AF38] rounded-[10px] flex items-center justify-center !text-[#D2AF38] text-[16px] lg:hover:opacity-80 hover:opacity-100 hover:scale-none lg:hover:scale-120 transition-all duration-200 ease-in-out"
+              "h-[56px] sm:h-[67px] w-full sm:w-[250px] bg-white ring ring-1 ring-[#D2AF38] leading-20 rounded-[20px] flex items-center justify-center !text-[#D2AF38] text-[16px] lg:hover:opacity-80 hover:opacity-100 hover:scale-none lg:hover:scale-120 transition-all duration-200 ease-in-out"
             }
             onClick={() => {}}
             loading={false}
