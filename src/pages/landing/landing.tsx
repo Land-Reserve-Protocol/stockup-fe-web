@@ -8,7 +8,7 @@ import Footer from "../../components/landing-page-components/footer";
 
 function Landing() {
   return (
-    <div>
+    <div className="wrapper">
       <Hero />
       <CoreFeatures />
       <HowItWorks />

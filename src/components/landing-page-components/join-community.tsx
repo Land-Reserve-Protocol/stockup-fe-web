@@ -18,7 +18,6 @@ function Community() {
             }
             onClick={() => {}}
             loading={false}
-            bold
             isDisabled={false}
           >
             Join the community
