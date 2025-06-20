@@ -85,11 +85,13 @@ function HowItWorks() {
                 key={title}
                 className={`
           ${
-            active === title ? "bg-[#1F2937]" : "bg-[#1F2937]"
+            active === title
+              ? "lg:bg-[#1F2937] bg-[transparent]"
+              : "lg:bg-[#1F2937] bg-[transparent]"
           } flex  items-start justify-around
           text-white  p-8 min-h-[300px] shadow-xl shadow-black/70 rounded-2xl 
           transition-all duration-300 ease-in-out
-         cursor-pointer max-w-4xl m-auto w-full`}
+         cursor-pointer max-w-4xl m-auto w-full sm:mx-[50px]`}
               >
                 <div
                   className="flex flex-col justify-center items-start
