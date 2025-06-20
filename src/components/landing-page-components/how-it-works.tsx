@@ -1,5 +1,6 @@
 import { useState } from "react";
 import Button from "../UI-components/Button/button";
+import "../../App.css";
 const steps = [
   {
     title: "Land Acquisition & Verification",
@@ -30,9 +31,10 @@ const steps = [
 
 function HowItWorks() {
   const [active, setIsActive] = useState(steps?.[0]?.title || "");
+  const [activeStep, setActiveStep] = useState(0);
 
   return (
-    <div className="relative text-white bg-[#00020b] py-20 px-4 sm:px-6 lg:px-16">
+    <div className="relative text-white bg-[#00020b] py-20 px-4 sm:px-6 lg:px-16 relative">
       <div className="max-w-7xl mx-auto flex flex-col items-center justify-center mb-10">
         <h2 className="text-2xl sm:text-3xl lg:text-[34px] font-semibold text-[#C8CBCC] mb-4">
           Land Tokenization Process
@@ -43,7 +45,7 @@ function HowItWorks() {
         </p>
       </div>
       <div className="hidden lg:flex lg:items-center lg:justify-center lg:m-20 bg-[#1F2937] lg:p-4 lg:rounded-xl lg:shadow-xl lg:shadow-black/70 lg:space-x-4">
-        {steps.map((step) => (
+        {steps.map((step, index) => (
           <Button
             key={step.title}
             style={`
@@ -54,7 +56,10 @@ function HowItWorks() {
             : "bg-gray-800 text-gray-300 hover:bg-gray-700 hover:text-white"
         }
       `}
-            onClick={() => setIsActive(step.title)}
+            onClick={() => {
+              setIsActive(step.title);
+              setActiveStep(index);
+            }}
             loading={false}
             isDisabled={false}
           >
@@ -63,24 +68,29 @@ function HowItWorks() {
         ))}
       </div>
 
-      <div className="container max-w-7xl mx-auto py-16 px-4">
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-12 ">
-          {steps.map(({ title, content }, index) => (
-            <div
-              onClick={() => setIsActive(title)}
-              key={index}
-              className={`
+      <div className="container max-w-7xl py-16 right-[200px] m-auto slider-container ">
+        <div className="slider-matrix">
+          <div className="flex justify-between items-center content-center  slider-elements">
+            {steps.map(({ title, content }, index) => (
+              <div
+                onClick={() => setIsActive(title)}
+                key={title}
+                className={`
           ${
-            active === title ? "bg-[#1F2937]" : "bg-transparent"
+            active === title ? "bg-[#1F2937]" : "bg-[#1F2937]"
           } flex flex-col justify-center items-start
           text-white p-8 min-h-[300px] shadow-xl shadow-black/70 rounded-2xl 
           transition-all duration-300 ease-in-out
-         cursor-pointer`}
-            >
-              <h2 className="text-xl font-bold mb-2">{title}</h2>
-              <p className="text-sm leading-relaxed">{content}</p>
-            </div>
-          ))}
+         cursor-pointer max-w-4xl m-auto w-full`}
+              >
+                <div>
+                  <h2 className="text-2xl font-bold mb-2">{title}</h2>
+                  <p className="text-md leading-relaxed w-[350px]">{content}</p>
+                </div>
+                <div></div>
+              </div>
+            ))}
+          </div>
         </div>
       </div>
     </div>
