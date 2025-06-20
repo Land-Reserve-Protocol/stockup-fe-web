@@ -34,12 +34,12 @@
 
 @keyframes move {
   to {
-    transform: translateX(calc(-100% + 100vw));
+    transform: translateX(calc(-110% + 100vw));
   }
 }
 
 .slider-container {
-  height: 700vh;
+  height: 500vh;
   overflow: visible;
 
   view-timeline-name: --section-pin-tl;
@@ -47,7 +47,7 @@
 }
 
 .slider-matrix {
-  height: 100vh;
+  height: 80vh;
   width: 100vw;
   position: sticky;
   top: 0;

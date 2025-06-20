@@ -1,6 +1,13 @@
 import { useState } from "react";
 import Button from "../UI-components/Button/button";
 import "../../App.css";
+import {
+  reg,
+  acquisition,
+  valuation,
+  gen,
+  on_chain,
+} from "../../assets/index.ts";
 const steps = [
   {
     title: "Land Acquisition & Verification",
@@ -28,6 +35,7 @@ const steps = [
       "Tokens are listed on our decentralized marketplace and become available for trading. Users can hold, stake, exchange, or sell tokens through both the marketplace and integrated peer-to-peer escrow systems, enabling liquidity and value realization.",
   },
 ];
+const images = [acquisition, valuation, reg, gen, on_chain];
 
 function HowItWorks() {
   const [active, setIsActive] = useState(steps?.[0]?.title || "");
@@ -44,7 +52,7 @@ function HowItWorks() {
           through our innovative protocol.
         </p>
       </div>
-      <div className="hidden lg:flex lg:items-center lg:justify-center lg:m-20 bg-[#1F2937] lg:p-4 lg:rounded-xl lg:shadow-xl lg:shadow-black/70 lg:space-x-4">
+      {/* <div className="hidden lg:flex lg:items-center lg:justify-center lg:m-20 bg-[#1F2937] lg:p-4 lg:rounded-xl lg:shadow-xl lg:shadow-black/70 lg:space-x-4">
         {steps.map((step, index) => (
           <Button
             key={step.title}
@@ -66,7 +74,7 @@ function HowItWorks() {
             {step.title}
           </Button>
         ))}
-      </div>
+      </div> */}
 
       <div className="container max-w-7xl py-16 right-[200px] m-auto slider-container ">
         <div className="slider-matrix">
@@ -78,16 +86,21 @@ function HowItWorks() {
                 className={`
           ${
             active === title ? "bg-[#1F2937]" : "bg-[#1F2937]"
-          } flex flex-col justify-center items-start
-          text-white p-8 min-h-[300px] shadow-xl shadow-black/70 rounded-2xl 
+          } flex  items-start justify-around
+          text-white  p-8 min-h-[300px] shadow-xl shadow-black/70 rounded-2xl 
           transition-all duration-300 ease-in-out
          cursor-pointer max-w-4xl m-auto w-full`}
               >
-                <div>
+                <div
+                  className="flex flex-col justify-center items-start
+          text-white "
+                >
                   <h2 className="text-2xl font-bold mb-2">{title}</h2>
                   <p className="text-md leading-relaxed w-[350px]">{content}</p>
                 </div>
-                <div></div>
+                <div>
+                  <img src={images[index]} className="h-[200px] w-[200px]" />
+                </div>
               </div>
             ))}
           </div>
