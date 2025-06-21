@@ -1,5 +1,5 @@
 import { useState } from "react";
-import Button from "../UI-components/Button/button";
+// import Button from "../UI-components/Button/button";
 import "../../App.css";
 import {
   reg,
@@ -39,7 +39,7 @@ const images = [acquisition, valuation, reg, gen, on_chain];
 
 function HowItWorks() {
   const [active, setIsActive] = useState(steps?.[0]?.title || "");
-  const [activeStep, setActiveStep] = useState(0);
+  // const [activeStep, setActiveStep] = useState(0);
 
   return (
     <div className="slider-container">
