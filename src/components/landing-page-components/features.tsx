@@ -6,14 +6,14 @@ function CoreFeatures() {
   return (
     <div className="min-h-[50vh] bg-transparent flex flex-col space-y-8 relative px-4 sm:px-8 py-20">
       {/* Overlay */}
-      <div className="absolute top-0 left-0 w-full h-full bg-[linear-gradient(to_top,_#00000090_10%,_#00000090_20%)] z-0"></div>
+      <div className="absolute top-0 left-0 w-full h-full bg-[linear-gradient(to_top,_#00000090_10%,_#00000090_20%)] z-10"></div>
 
       {/* Header */}
       <div className="relative z-10 flex flex-col items-center justify-center gap-4 text-center">
         <p className="text-2xl sm:text-3xl md:text-4xl font-bold text-[#C8CBCC]">
           Core Features
         </p>
-        <p className="text-base sm:text-lg md:text-xl text-[#656F79] max-w-3xl">
+        <p className="text-base sm:text-lg md:text-xl text-[#8A96A1] max-w-3xl">
           Revolutionary DeFi infrastructure backed by real-world assets
         </p>
       </div>

@@ -10,8 +10,56 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Land Reserve Protocol</title>
   </head>
-  <body>
+  <body
+    data-scroll-duration="1000"
+    data-scroll-deceleration="0.96"
+    data-scroll-sensitivity="0.05"
+    data-scroll-isScrolling="false"
+    data-scroll-velocity="0"
+  >
+    <script src="https://cdn.jsdelivr.net/gh/monsieurdd/mrD-SmoothScroller@latest/mrd-smoothscroller.js"></script>
     <div id="root"></div>
     <script type="module" src="/src/Stockup-web.tsx"></script>
+    <!-- <script>
+      window.addEventListener("scroll", setScrollVar);
+      window.addEventListener("resize", setScrollVar);
+
+      function setScrollVar() {
+        const htmlElement = document.documentElement;
+        const rootElement = document.getElementById("root");
+        const percentOfScreenHeightScrolled =
+          htmlElement.scrollTop / htmlElement.clientHeight;
+
+        console.log(percentOfScreenHeightScrolled);
+        rootElement.style.setProperty(
+          "--scroll",
+          Math.min(percentOfScreenHeightScrolled * 100 * 2, 1000) * -1 + "px"
+        );
+      }
+
+      setScrollVar();
+
+      let scrollSpeed = 0;
+      let isScrolling = false;
+
+      function smoothScroll() {
+        if (Math.abs(scrollSpeed) > 0.5) {
+          document.documentElement.scrollTop += scrollSpeed;
+          scrollSpeed *= 0.95; // Slow down over time
+          requestAnimationFrame(smoothScroll);
+        } else {
+          isScrolling = false;
+        }
+      }
+
+      window.addEventListener("wheel", (event) => {
+        scrollSpeed += event.deltaY * 0.2; // Adjust sensitivity
+        if (!isScrolling) {
+          isScrolling = true;
+          smoothScroll();
+        }
+      });
+    </script> -->
+    <!-- <script src="https://cdn.jsdelivr.net/gh/monsieurdd/mrD-SmoothScroller@latest/mrd-smoothscroller.js"></script> -->
   </body>
 </html>
