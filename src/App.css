@@ -41,13 +41,14 @@
 .slider-container {
   height: 500vh;
   overflow: visible;
+  /* padding-top: 150px; */
 
   view-timeline-name: --section-pin-tl;
   view-timeline-axis: block;
 }
 
 .slider-matrix {
-  height: 80vh;
+  height: 100vh;
   width: 100vw;
   position: sticky;
   top: 0;
@@ -57,7 +58,7 @@
 }
 
 .slider-elements {
-  height: 100vh;
+  height: 50vh;
   width: 250vmax;
   will-change: transform;
   animation: linear move forwards;
