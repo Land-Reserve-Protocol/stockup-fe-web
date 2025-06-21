@@ -41,7 +41,18 @@ function Footer() {
             <h3 className="text-md font-semibold mb-4">{section.title}</h3>
             <ul className="space-y-2 text-sm text-gray-400">
               {section.items.map((item, i) => (
-                <li key={i} className="hover:text-white cursor-pointer">
+                <li
+                  key={i}
+                  className="hover:text-white cursor-pointer"
+                  onClick={() => {
+                    if (item === "White Paper") {
+                      window.open(
+                        "https://raw.githubusercontent.com/Land-Reserve-Protocol/landing-page-assets/main/The%20Land%20Reserve%20Protocol%20(Stock%20Up)%20(1).pdf",
+                        "_blank"
+                      );
+                    }
+                  }}
+                >
                   {item}
                 </li>
               ))}
