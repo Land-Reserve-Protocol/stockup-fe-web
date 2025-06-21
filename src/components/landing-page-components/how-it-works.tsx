@@ -44,7 +44,7 @@ function HowItWorks() {
   return (
     <div className="slider-container">
       <div className="relative text-white bg-[#00020b] py-20 px-4 sm:px-6 lg:px-16 relative slider-matrix">
-        <div className="max-w-7xl mx-auto flex flex-col items-center justify-center mb-10 mt-10">
+        <div className="max-w-7xl mx-auto flex flex-col items-center justify-center mb-10 lg:mt-10 mt-0">
           <h2 className="text-2xl sm:text-3xl lg:text-[34px] font-semibold text-[#C8CBCC] mb-4">
             Land Tokenization Process
           </h2>
