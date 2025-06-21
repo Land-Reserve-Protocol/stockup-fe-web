@@ -33,7 +33,12 @@ function Hero() {
             style={
               "h-[56px] sm:h-[67px] w-full sm:w-[250px] bg-white ring ring-1 ring-[#D2AF38] leading-20 rounded-[20px] flex items-center justify-center !text-[#D2AF38] text-[16px] lg:hover:opacity-100 opacity-80 hover:opacity-100 hover:scale-none lg:hover:scale-105 transition-all duration-200 ease-in-out"
             }
-            onClick={() => {}}
+            onClick={() =>
+              window.open(
+                "https://raw.githubusercontent.com/Land-Reserve-Protocol/landing-page-assets/main/The%20Land%20Reserve%20Protocol%20(Stock%20Up)%20(1).pdf",
+                "_blank"
+              )
+            }
             loading={false}
             isDisabled={false}
           >
