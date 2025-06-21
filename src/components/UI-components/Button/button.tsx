@@ -1,5 +1,4 @@
 import type { ButtonProps } from "../../../common/types/componentTypes";
-import Loader from "../loader";
 
 function Button({
   style = "",
@@ -27,7 +26,7 @@ function Button({
       disabled={loading || isDisabled}
       onClick={onClick}
     >
-      {loading ? <Loader size={24} color="#1E1E1E" /> : text || children}
+      {text || children}
     </button>
   );
 }
