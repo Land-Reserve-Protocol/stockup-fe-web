@@ -25,14 +25,14 @@ function Core() {
     },
   ];
   return (
-    <div className="flex items-center justify-center w-full parallax-container min-h-screen bg-[linear-gradient(to_top,_#00000090_10%,_#00000090_20%)]">
+    <div className="flex items-center justify-center max-w-full lg:min-h-screen max-h_screen py-[150px] bg-[linear-gradient(to_top,_#00000090_10%,_#00000090_20%)]">
       <div className="flex flex-col justify-center items-center h-full px-4 sm:px-6 md:px-10 lg:px-16 max-w-[90rem] mx-auto gap-6 z-[50] relative ">
         <div className="grid lg:grid-cols-2 items-center gap-x-[100px] gap-y-[20px]">
-          <h1 className="text-[48px] w-full">
+          <h1 className="text-[48px] text-[#C8CBCC] w-full">
             A New Market Primitive:&nbsp;&nbsp;&nbsp;{" "}
             <div className="text-[#D2AF38] font-[600]">Land as Liquidity</div>
           </h1>
-          <p className="w-[608.5px]">
+          <p className="lg:w-[608.5px] w-full">
             Land Reserve Protocol ($LND) isn’t just a token. It’s the foundation
             of a new on-chain economy—where real-world land is liquid,
             composable, and tradeable at scale. Every $LND token represents
@@ -46,7 +46,7 @@ function Core() {
           {protocolFeatures.map(
             ({ title, content }: { title: string; content: string }) => (
               <div className="w-full space-y-[20px] ">
-                <h1 className="text-[20px] font-[700] h-[50px] flex items-center">
+                <h1 className="text-[20px] font-[700] h-[50px] flex items-center text-[#C8CBCC]">
                   {title}
                 </h1>
                 <p className="text-[16px] text-[#8A96A1]">{content}</p>
