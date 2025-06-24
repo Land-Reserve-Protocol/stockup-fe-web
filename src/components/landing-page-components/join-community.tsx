@@ -14,7 +14,7 @@ function Community() {
         <div className="flex flex-col sm:flex-row gap-6">
           <Button
             style={
-              "h-[55px] sm:h-[67px] w-full sm:w-[250px] bg-[#D2AF38] rounded-[10px] flex items-center justify-center !text-[#5C532D] hover:text-[18px] text-[16px] transition-all"
+              "p-6 h-[55px] sm:h-[67px] w-full sm:w-[250px] bg-[#D2AF38] rounded-[10px] flex items-center justify-center !text-[#5C532D] hover:text-[18px] text-[16px] transition-all"
             }
             onClick={() => {}}
             loading={false}
@@ -24,7 +24,7 @@ function Community() {
           </Button>
           <Button
             style={
-              "h-[55px] sm:h-[67px] w-full sm:w-[250px] bg-transparent ring ring-1 ring-[#D2AF38] rounded-[10px] flex items-center justify-center !text-[#D2AF38] text-[16px] hover:text-[18px] transition-all"
+              "h-[55px] p-6 sm:h-[67px] w-full sm:w-[250px] bg-transparent ring ring-1 ring-[#D2AF38] rounded-[10px] flex items-center justify-center !text-[#D2AF38] text-[16px] hover:text-[18px] transition-all"
             }
             onClick={() =>
               window.open(
