@@ -10,12 +10,14 @@ import image from "../../assets/newest.webp";
 function Landing() {
   return (
     <div className="wrapper">
+      {/* <picture> */}
       <img
         src={image}
         className="parallax-image"
         loading="eager"
         fetchPriority="high"
       />
+      {/* </picture> */}
       <Hero />
       <CoreFeatures />
       <HowItWorks />
