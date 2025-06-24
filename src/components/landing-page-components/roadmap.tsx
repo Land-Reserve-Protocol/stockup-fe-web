@@ -1,10 +1,10 @@
 function Roadmap() {
   return (
-    <div className="bg-[#00020b] text-white py-[100px] px-4">
+    <section className="bg-[#00020b] text-white py-24 px-4">
       <div className="max-w-7xl mx-auto">
         {/* Header Section */}
-        <div className="mb-14 text-center max-w-3xl mx-auto px-2">
-          <h2 className="text-2xl sm:text-3xl md:text-4xl font-semibold mb-3">
+        <div className="mb-20 text-center max-w-3xl mx-auto px-4">
+          <h2 className="text-3xl sm:text-4xl md:text-5xl font-semibold mb-4">
             Protocol Roadmap
           </h2>
           <p className="text-base sm:text-lg text-[#7A8187]">
@@ -13,59 +13,77 @@ function Roadmap() {
           </p>
         </div>
 
-        {/* Phases Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-10 md:gap-16 px-2">
+        {/* Timeline Section */}
+        <div className="relative border-l-4 border-green-500 pl-6 sm:pl-10 space-y-20">
           {[
             {
               phase: "Phase 1: Foundation",
+              date: "Q2 2025",
               points: [
                 "Protocol architecture development",
                 "Smart contract auditing",
                 "Initial land acquisition framework",
               ],
+              completed: false,
             },
             {
               phase: "Phase 2: Launch",
+              date: "Q4 2025",
               points: [
-                "Token Generation Event (TGE)",
-                "Initial Coin Offering (ICO)",
-                "DEX listing and liquidity pool deployment",
+                "Token generation event",
+                "Initial land tokenization",
+                "Market Place listings and liquidity pools",
               ],
+              completed: false,
             },
             {
               phase: "Phase 3: Expansion",
+              date: "Q2 2026",
               points: [
                 "Cross-chain integration",
                 "Lending protocol launch",
                 "DAO governance activation",
               ],
+              completed: false,
             },
             {
               phase: "Phase 4: Ecosystem",
+              date: "2026",
               points: [
-                "Integration with real-world asset partners",
-                "Launch of the Land Reserve Index Fund",
-                "Institutional adoption and compliance framework",
+                "Real-world asset integration partners",
+                "Land Reserve Index Fund",
+                "Institutional adoption framework",
               ],
+              completed: false,
             },
           ].map((item, idx) => (
-            <div
-              key={idx}
-              className="bg-[#0a0f14] p-6 rounded-lg shadow-md ring-1 ring-[#1a1a1a]"
-            >
-              <h3 className="text-xl md:text-2xl font-semibold text-[#D4AF37] mb-4">
-                {item.phase}
-              </h3>
-              <ul className="list-disc list-inside text-[#C8CBCC] space-y-2 text-[17px]">
-                {item.points.map((point, i) => (
-                  <li key={i}>{point}</li>
-                ))}
-              </ul>
+            <div key={idx} className="relative">
+              {/* Timeline Dot */}
+              {/* <div className="absolute -left-5 sm:-left-6 top-2 w-6 h-6 flex items-center justify-center bg-green-500 text-black rounded-full z-10 text-sm font-bold">
+                {item.completed ? "✓" : "•"}
+              </div> */}
+
+              {/* Card */}
+              <div className="bg-[#0e1a2d] rounded-lg shadow-md p-6 md:p-8 w-full">
+                <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between">
+                  <h3 className="text-xl sm:text-2xl font-semibold text-[#D4AF37]">
+                    {item.phase}
+                  </h3>
+                  <p className="text-sm text-gray-400 mt-1 sm:mt-0">
+                    {item.date}
+                  </p>
+                </div>
+                <ul className="list-disc list-inside mt-4 text-gray-100 space-y-1 text-base leading-relaxed">
+                  {item.points.map((point, i) => (
+                    <li key={i}>{point}</li>
+                  ))}
+                </ul>
+              </div>
             </div>
           ))}
         </div>
       </div>
-    </div>
+    </section>
   );
 }
 

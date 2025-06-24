@@ -5,13 +5,22 @@ import HowItWorks from "../../components/landing-page-components/how-it-works";
 import Roadmap from "../../components/landing-page-components/roadmap";
 import Community from "../../components/landing-page-components/join-community";
 import Footer from "../../components/landing-page-components/footer";
-import image from "../../assets/newest.png";
+import image from "../../assets/newest.webp";
+import Core from "../../components/landing-page-components/core";
 
 function Landing() {
   return (
     <div className="wrapper">
-      <img src={image} className="parallax-image" />
+      {/* <picture> */}
+      <img
+        src={image}
+        className="parallax-image"
+        loading="eager"
+        fetchPriority="high"
+      />
+      {/* </picture> */}
       <Hero />
+      <Core />
       <CoreFeatures />
       <HowItWorks />
       <Roadmap />
