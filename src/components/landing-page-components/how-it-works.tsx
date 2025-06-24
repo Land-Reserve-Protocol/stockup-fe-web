@@ -89,7 +89,7 @@ function HowItWorks() {
             active === title
               ? "lg:bg-[#1F2937] bg-[transparent]"
               : "lg:bg-[#1F2937] bg-[transparent]"
-          } flex  items-start justify-around
+          } flex lg:flex-row md:flex-row flex-col space-y-[20px]  items-center justify-around
           text-white  p-8 min-h-[300px] shadow-xl shadow-black/70 rounded-2xl 
           transition-all duration-300 ease-in-out
          cursor-pointer max-w-4xl m-auto w-full sm:mx-[50px]`}
@@ -98,8 +98,10 @@ function HowItWorks() {
                     className="flex flex-col justify-center items-start
           text-white "
                   >
-                    <h2 className="text-2xl font-bold mb-2">{title}</h2>
-                    <p className="text-md leading-relaxed w-[350px]">
+                    <h2 className="text-2xl font-bold mb-2 text-center lg:text-left md:text-left w-full">
+                      {title}
+                    </h2>
+                    <p className="text-md leading-relaxed w-[350px] text-center lg:text-left md:text-left">
                       {content}
                     </p>
                   </div>
