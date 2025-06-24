@@ -31,7 +31,7 @@ function Hero() {
           </Button>
           <Button
             style={
-              "h-[56px] sm:h-[67px] w-full sm:w-[250px] bg-white ring ring-1 ring-[#D2AF38] leading-20 rounded-[20px] flex items-center justify-center !text-[#D2AF38] text-[16px] lg:hover:opacity-100 opacity-80 hover:opacity-100 hover:scale-none lg:hover:scale-105 transition-all duration-200 ease-in-out"
+              "h-[56px] sm:h-[67px] w-full sm:w-[250px] bg-white  leading-20 rounded-[20px] flex items-center justify-center !text-[#D2AF38] text-[16px] lg:hover:opacity-100 opacity-80 hover:opacity-100 hover:scale-none lg:hover:scale-105 transition-all duration-200 ease-in-out"
             }
             onClick={() =>
               window.open(

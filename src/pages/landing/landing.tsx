@@ -6,6 +6,7 @@ import Roadmap from "../../components/landing-page-components/roadmap";
 import Community from "../../components/landing-page-components/join-community";
 import Footer from "../../components/landing-page-components/footer";
 import image from "../../assets/newest.webp";
+import Core from "../../components/landing-page-components/core";
 
 function Landing() {
   return (
@@ -19,6 +20,7 @@ function Landing() {
       />
       {/* </picture> */}
       <Hero />
+      <Core />
       <CoreFeatures />
       <HowItWorks />
       <Roadmap />
