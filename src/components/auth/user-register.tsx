@@ -117,7 +117,7 @@ export default function Register() {
                 <div className="relative">
                   <input
                     id="confirmPassword"
-                    type="password"
+                    type={psw ? "text" : "password"}
                     autoComplete="off"
                     {...formik.getFieldProps("confirmPassword")}
                     className="w-full px-4 py-2 border rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
