@@ -27,9 +27,10 @@ export default function Login() {
               )
               .required("Required"),
           })}
-          onSubmit={(values, { setSubmitting }) => {
+          onSubmit={(values, { setSubmitting, resetForm }) => {
             alert(JSON.stringify(values, null, 2));
             setSubmitting(false);
+            resetForm();
           }}
         >
           {(formik) => (

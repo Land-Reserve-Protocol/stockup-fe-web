@@ -36,9 +36,10 @@ export default function Register() {
               .required("Please confirm your password")
               .oneOf([Yup.ref("password")], "Passwords must match"),
           })}
-          onSubmit={(values, { setSubmitting }) => {
+          onSubmit={(values, { setSubmitting, resetForm }) => {
             alert(JSON.stringify(values, null, 2));
             setSubmitting(false);
+            resetForm();
           }}
         >
           {(formik) => (
